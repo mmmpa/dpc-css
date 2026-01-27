@@ -1,0 +1,43 @@
+// src/scss/_mixins.scss
+
+// Box sizing reset for components
+@mixin component-base {
+  box-sizing: border-box;
+
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+}
+
+// Focus ring for accessibility
+@mixin focus-ring($color: var(--dpc-primary)) {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(2, 186, 242, 0.3);
+}
+
+// Disabled state
+@mixin disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+// Button base
+@mixin button-base {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--dpc-spacing-sm) var(--dpc-spacing-md);
+  font-family: var(--dpc-font-family);
+  font-size: var(--dpc-font-size-md);
+  font-weight: var(--dpc-font-weight-semibold);
+  line-height: 1.5;
+  text-decoration: none;
+  border: none;
+  border-radius: var(--dpc-border-radius);
+  cursor: pointer;
+  transition: background-color var(--dpc-transition-fast),
+              box-shadow var(--dpc-transition-fast);
+}

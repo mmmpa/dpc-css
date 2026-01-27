@@ -1,0 +1,33 @@
+{
+  "name": "dpc-css",
+  "version": "0.1.0",
+  "description": "Lightweight CSS components based on Drunken Parrot Flat UI",
+  "main": "dist/dpc.css",
+  "style": "dist/dpc.css",
+  "files": [
+    "dist/dpc.css"
+  ],
+  "scripts": {
+    "build": "sass src/scss/index.scss dist/dpc.css --style=compressed --no-source-map",
+    "build:dev": "sass src/scss/index.scss dist/dpc.css --source-map",
+    "watch": "sass src/scss/index.scss dist/dpc.css --watch --source-map",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
+  },
+  "devDependencies": {
+    "@storybook/addon-essentials": "^8.6.14",
+    "@storybook/html": "^8.6.14",
+    "@storybook/html-vite": "^8.6.14",
+    "sass": "^1.97.3",
+    "storybook": "^8.6.14",
+    "typescript": "^5.9.3",
+    "vite": "^7.3.1"
+  },
+  "keywords": [
+    "css",
+    "ui",
+    "components",
+    "flat-ui"
+  ],
+  "license": "MIT"
+}

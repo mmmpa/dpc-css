@@ -1,0 +1,50 @@
+// src/scss/components/_alert.scss
+@use '../mixins' as *;
+
+.dpc-alert {
+  @include component-base;
+  display: flex;
+  align-items: flex-start;
+  padding: var(--dpc-spacing-md);
+  font-family: var(--dpc-font-family);
+  font-size: var(--dpc-font-size-md);
+  line-height: 1.5;
+  border-radius: var(--dpc-border-radius);
+  border: 1px solid transparent;
+
+  // === Variants ===
+  &--info {
+    background-color: rgba(214, 225, 229, 0.3);
+    border-color: var(--dpc-info);
+    color: var(--dpc-dark);
+  }
+
+  &--success {
+    background-color: rgba(62, 181, 172, 0.1);
+    border-color: var(--dpc-success);
+    color: #2a8079;
+  }
+
+  &--warning {
+    background-color: rgba(250, 212, 107, 0.2);
+    border-color: var(--dpc-warning);
+    color: #8a6d00;
+  }
+
+  &--danger {
+    background-color: rgba(248, 69, 69, 0.1);
+    border-color: var(--dpc-danger);
+    color: #c13535;
+  }
+
+  // === Elements ===
+  &__icon {
+    flex-shrink: 0;
+    margin-right: var(--dpc-spacing-sm);
+  }
+
+  &__content {
+    flex: 1;
+    min-width: 0;
+  }
+}

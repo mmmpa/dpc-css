@@ -1,0 +1,119 @@
+// src/scss/components/_radio.scss
+@use '../mixins' as *;
+
+.dpc-radio {
+  @include component-base;
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+  user-select: none;
+  font-family: var(--dpc-font-family);
+  font-size: var(--dpc-font-size-md);
+  color: var(--dpc-dark);
+
+  &__input {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+
+    &:checked + .dpc-radio__circle {
+      border-color: var(--dpc-primary);
+
+      &::after {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+      }
+    }
+
+    &:focus + .dpc-radio__circle {
+      box-shadow: 0 0 0 3px rgba(2, 186, 242, 0.25);
+    }
+
+    &:disabled + .dpc-radio__circle {
+      background-color: var(--dpc-lighter);
+      border-color: var(--dpc-light);
+      cursor: not-allowed;
+    }
+
+    &:disabled:checked + .dpc-radio__circle {
+      border-color: var(--dpc-gray-light);
+
+      &::after {
+        background-color: var(--dpc-gray-light);
+      }
+    }
+
+    &:disabled ~ .dpc-radio__label {
+      color: var(--dpc-gray);
+      cursor: not-allowed;
+    }
+  }
+
+  &__circle {
+    position: relative;
+    width: 20px;
+    height: 20px;
+    border: 2px solid var(--dpc-gray-light);
+    border-radius: 50%;
+    background-color: var(--dpc-white);
+    transition: all var(--dpc-transition-fast);
+    flex-shrink: 0;
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background-color: var(--dpc-primary);
+      transform: translate(-50%, -50%) scale(0);
+      opacity: 0;
+      transition: all var(--dpc-transition-fast);
+    }
+  }
+
+  &__label {
+    margin-left: var(--dpc-spacing-sm);
+  }
+
+  // Color variants
+  &--success .dpc-radio__input:checked + .dpc-radio__circle {
+    border-color: var(--dpc-success);
+
+    &::after {
+      background-color: var(--dpc-success);
+    }
+  }
+
+  &--warning .dpc-radio__input:checked + .dpc-radio__circle {
+    border-color: var(--dpc-warning);
+
+    &::after {
+      background-color: var(--dpc-warning);
+    }
+  }
+
+  &--danger .dpc-radio__input:checked + .dpc-radio__circle {
+    border-color: var(--dpc-danger);
+
+    &::after {
+      background-color: var(--dpc-danger);
+    }
+  }
+}
+
+// Radio group for layout
+.dpc-radio-group {
+  @include component-base;
+  display: flex;
+  flex-direction: column;
+  gap: var(--dpc-spacing-sm);
+
+  &--inline {
+    flex-direction: row;
+    gap: var(--dpc-spacing-md);
+  }
+}

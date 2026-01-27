@@ -1,0 +1,137 @@
+// src/scss/components/_tabs.scss
+@use '../mixins' as *;
+
+.dpc-tabs {
+  @include component-base;
+  display: flex;
+  flex-wrap: wrap;
+  padding-left: 0;
+  margin: 0;
+  list-style: none;
+  font-family: var(--dpc-font-family);
+  border-bottom: 1px solid var(--dpc-light);
+
+  &__item {
+    margin-bottom: -1px;
+  }
+
+  &__link {
+    display: block;
+    padding: var(--dpc-spacing-sm) var(--dpc-spacing-md);
+    color: var(--dpc-primary);
+    text-decoration: none;
+    background-color: transparent;
+    border: 1px solid transparent;
+    border-top-left-radius: var(--dpc-border-radius);
+    border-top-right-radius: var(--dpc-border-radius);
+    transition: color var(--dpc-transition-fast),
+                background-color var(--dpc-transition-fast),
+                border-color var(--dpc-transition-fast);
+
+    &:hover,
+    &:focus {
+      color: var(--dpc-primary-active);
+      border-color: transparent;
+    }
+  }
+
+  // Active tab
+  &__item--active &__link {
+    color: var(--dpc-dark);
+    background-color: var(--dpc-white);
+    border-color: var(--dpc-light) var(--dpc-light) var(--dpc-white);
+    font-weight: var(--dpc-font-weight-semibold);
+  }
+
+  // Disabled
+  &__item--disabled &__link {
+    color: var(--dpc-gray-light);
+    pointer-events: none;
+    cursor: not-allowed;
+  }
+
+  // === Stroke variant (thicker border) ===
+  &--stroke {
+    border-bottom-width: 2px;
+
+    .dpc-tabs__item {
+      margin-bottom: -2px;
+    }
+
+    .dpc-tabs__link {
+      border-width: 2px;
+    }
+
+    .dpc-tabs__item--active .dpc-tabs__link {
+      border-color: var(--dpc-light) var(--dpc-light) var(--dpc-white);
+    }
+  }
+}
+
+// === Pills variant ===
+.dpc-pills {
+  @include component-base;
+  display: flex;
+  flex-wrap: wrap;
+  padding-left: 0;
+  margin: 0;
+  list-style: none;
+  font-family: var(--dpc-font-family);
+  gap: var(--dpc-spacing-xs);
+
+  &__link {
+    display: block;
+    padding: var(--dpc-spacing-sm) var(--dpc-spacing-md);
+    color: var(--dpc-primary);
+    text-decoration: none;
+    background-color: transparent;
+    border-radius: var(--dpc-border-radius);
+    line-height: 1.3;
+    transition: color var(--dpc-transition-fast),
+                background-color var(--dpc-transition-fast);
+
+    &:hover,
+    &:focus {
+      color: var(--dpc-white);
+      background-color: var(--dpc-gray-light);
+    }
+  }
+
+  // Active pill
+  &__item--active &__link {
+    color: var(--dpc-white);
+    background-color: var(--dpc-primary);
+
+    &:hover,
+    &:focus {
+      background-color: var(--dpc-primary);
+    }
+  }
+
+  // Disabled
+  &__item--disabled &__link {
+    color: var(--dpc-gray-light);
+    pointer-events: none;
+    cursor: not-allowed;
+  }
+
+  // === Vertical variant ===
+  &--vertical {
+    flex-direction: column;
+    gap: 0;
+
+    .dpc-pills__link {
+      border-radius: 0;
+    }
+
+    .dpc-pills__item:first-child .dpc-pills__link {
+      border-top-left-radius: var(--dpc-border-radius);
+      border-top-right-radius: var(--dpc-border-radius);
+    }
+
+    .dpc-pills__item:last-child .dpc-pills__link {
+      border-bottom-left-radius: var(--dpc-border-radius);
+      border-bottom-right-radius: var(--dpc-border-radius);
+    }
+  }
+}

@@ -1,0 +1,55 @@
+// src/scss/components/_input.scss
+@use '../mixins' as *;
+
+.dpc-input {
+  @include component-base;
+  display: block;
+  width: 100%;
+  padding: var(--dpc-spacing-sm) var(--dpc-spacing-md);
+  font-family: var(--dpc-font-family);
+  font-size: var(--dpc-font-size-md);
+  font-weight: var(--dpc-font-weight-normal);
+  line-height: 1.5;
+  color: var(--dpc-dark);
+  background-color: var(--dpc-white);
+  border: 1px solid var(--dpc-gray);
+  border-radius: var(--dpc-border-radius);
+  transition: border-color var(--dpc-transition-fast),
+              box-shadow var(--dpc-transition-fast);
+
+  &::placeholder {
+    color: var(--dpc-gray);
+  }
+
+  &:focus {
+    outline: none;
+    border-color: var(--dpc-primary);
+    box-shadow: 0 0 0 3px rgba(2, 186, 242, 0.2);
+  }
+
+  // === States ===
+  &--error {
+    border-color: var(--dpc-danger);
+
+    &:focus {
+      border-color: var(--dpc-danger);
+      box-shadow: 0 0 0 3px rgba(248, 69, 69, 0.2);
+    }
+  }
+
+  &--success {
+    border-color: var(--dpc-success);
+
+    &:focus {
+      border-color: var(--dpc-success);
+      box-shadow: 0 0 0 3px rgba(62, 181, 172, 0.2);
+    }
+  }
+
+  &:disabled,
+  &--disabled {
+    background-color: var(--dpc-light);
+    cursor: not-allowed;
+    opacity: 0.7;
+  }
+}

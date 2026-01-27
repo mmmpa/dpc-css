@@ -1,0 +1,90 @@
+// src/scss/components/_select.scss
+@use '../mixins' as *;
+
+.dpc-select {
+  @include component-base;
+  position: relative;
+  display: inline-block;
+  font-family: var(--dpc-font-family);
+
+  &__input {
+    appearance: none;
+    width: 100%;
+    padding: var(--dpc-spacing-sm) var(--dpc-spacing-lg) var(--dpc-spacing-sm) var(--dpc-spacing-md);
+    font-family: inherit;
+    font-size: var(--dpc-font-size-md);
+    color: var(--dpc-dark);
+    background-color: var(--dpc-white);
+    border: 1px solid var(--dpc-light);
+    border-radius: var(--dpc-border-radius);
+    cursor: pointer;
+    transition: border-color var(--dpc-transition-fast), box-shadow var(--dpc-transition-fast);
+
+    &:hover {
+      border-color: var(--dpc-gray-light);
+    }
+
+    &:focus {
+      outline: none;
+      border-color: var(--dpc-primary);
+      box-shadow: 0 0 0 3px rgba(2, 186, 242, 0.25);
+    }
+
+    &:disabled {
+      background-color: var(--dpc-lighter);
+      color: var(--dpc-gray);
+      cursor: not-allowed;
+    }
+  }
+
+  &__icon {
+    position: absolute;
+    right: var(--dpc-spacing-sm);
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+    color: var(--dpc-gray);
+
+    &::after {
+      content: '';
+      display: block;
+      width: 0;
+      height: 0;
+      border-left: 5px solid transparent;
+      border-right: 5px solid transparent;
+      border-top: 5px solid currentColor;
+    }
+  }
+
+  // Size variants
+  &--sm {
+    .dpc-select__input {
+      padding: var(--dpc-spacing-xs) var(--dpc-spacing-lg) var(--dpc-spacing-xs) var(--dpc-spacing-sm);
+      font-size: var(--dpc-font-size-sm);
+    }
+  }
+
+  &--lg {
+    .dpc-select__input {
+      padding: 12px var(--dpc-spacing-lg) 12px var(--dpc-spacing-md);
+      font-size: var(--dpc-font-size-lg);
+    }
+  }
+
+  // State variants
+  &--success .dpc-select__input {
+    border-color: var(--dpc-success);
+
+    &:focus {
+      box-shadow: 0 0 0 3px rgba(62, 181, 172, 0.25);
+    }
+  }
+
+  &--error .dpc-select__input {
+    border-color: var(--dpc-danger);
+
+    &:focus {
+      box-shadow: 0 0 0 3px rgba(248, 69, 69, 0.25);
+    }
+  }
+}

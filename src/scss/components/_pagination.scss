@@ -1,0 +1,84 @@
+// src/scss/components/_pagination.scss
+@use '../mixins' as *;
+
+.dpc-pagination {
+  @include component-base;
+  display: flex;
+  padding-left: 0;
+  list-style: none;
+  margin: 0;
+  font-family: var(--dpc-font-family);
+
+  &__item {
+    &:not(:first-child) {
+      margin-left: -1px;
+    }
+  }
+
+  &__link {
+    display: block;
+    padding: var(--dpc-spacing-sm) var(--dpc-spacing-md);
+    color: var(--dpc-primary);
+    text-decoration: none;
+    background-color: var(--dpc-white);
+    border: 1px solid var(--dpc-light);
+    transition: color var(--dpc-transition-fast),
+                background-color var(--dpc-transition-fast),
+                border-color var(--dpc-transition-fast);
+
+    &:hover,
+    &:focus {
+      color: var(--dpc-primary);
+      background-color: var(--dpc-white);
+      border-color: var(--dpc-primary);
+      z-index: 2;
+      position: relative;
+    }
+  }
+
+  // First item
+  &__item:first-child &__link {
+    border-top-left-radius: var(--dpc-border-radius);
+    border-bottom-left-radius: var(--dpc-border-radius);
+  }
+
+  // Last item
+  &__item:last-child &__link {
+    border-top-right-radius: var(--dpc-border-radius);
+    border-bottom-right-radius: var(--dpc-border-radius);
+  }
+
+  // Active state
+  &__item--active &__link {
+    background-color: var(--dpc-lighter);
+    border-color: var(--dpc-light);
+    color: var(--dpc-dark);
+    z-index: 1;
+    position: relative;
+
+    &:hover,
+    &:focus {
+      background-color: var(--dpc-lighter);
+      border-color: var(--dpc-light);
+      color: var(--dpc-dark);
+    }
+  }
+
+  // Disabled state
+  &__item--disabled &__link {
+    color: var(--dpc-gray-light);
+    pointer-events: none;
+    cursor: not-allowed;
+  }
+
+  // === Sizes ===
+  &--sm &__link {
+    padding: var(--dpc-spacing-xs) 11px;
+    font-size: var(--dpc-font-size-sm);
+  }
+
+  &--lg &__link {
+    padding: 10px 19px;
+    font-size: var(--dpc-font-size-lg);
+  }
+}

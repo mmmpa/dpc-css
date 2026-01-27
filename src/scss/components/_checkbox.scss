@@ -1,0 +1,99 @@
+// src/scss/components/_checkbox.scss
+@use '../mixins' as *;
+
+.dpc-checkbox {
+  @include component-base;
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+  user-select: none;
+  font-family: var(--dpc-font-family);
+  font-size: var(--dpc-font-size-md);
+  color: var(--dpc-dark);
+
+  &__input {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+
+    &:checked + .dpc-checkbox__box {
+      background-color: var(--dpc-primary);
+      border-color: var(--dpc-primary);
+
+      &::after {
+        opacity: 1;
+        transform: rotate(45deg) scale(1);
+      }
+    }
+
+    &:focus + .dpc-checkbox__box {
+      box-shadow: 0 0 0 3px rgba(2, 186, 242, 0.25);
+    }
+
+    &:disabled + .dpc-checkbox__box {
+      background-color: var(--dpc-lighter);
+      border-color: var(--dpc-light);
+      cursor: not-allowed;
+    }
+
+    &:disabled:checked + .dpc-checkbox__box {
+      background-color: var(--dpc-gray-light);
+      border-color: var(--dpc-gray-light);
+    }
+
+    &:disabled ~ .dpc-checkbox__label {
+      color: var(--dpc-gray);
+      cursor: not-allowed;
+    }
+  }
+
+  &__box {
+    position: relative;
+    width: 20px;
+    height: 20px;
+    border: 2px solid var(--dpc-gray-light);
+    border-radius: 3px;
+    background-color: var(--dpc-white);
+    transition: all var(--dpc-transition-fast);
+    flex-shrink: 0;
+
+    &::after {
+      content: '';
+      position: absolute;
+      left: 6px;
+      top: 2px;
+      width: 5px;
+      height: 10px;
+      border: solid var(--dpc-white);
+      border-width: 0 2px 2px 0;
+      opacity: 0;
+      transform: rotate(45deg) scale(0);
+      transition: all var(--dpc-transition-fast);
+    }
+  }
+
+  &__label {
+    margin-left: var(--dpc-spacing-sm);
+  }
+
+  // Color variants
+  &--success .dpc-checkbox__input:checked + .dpc-checkbox__box {
+    background-color: var(--dpc-success);
+    border-color: var(--dpc-success);
+  }
+
+  &--warning .dpc-checkbox__input:checked + .dpc-checkbox__box {
+    background-color: var(--dpc-warning);
+    border-color: var(--dpc-warning);
+
+    &::after {
+      border-color: var(--dpc-dark);
+    }
+  }
+
+  &--danger .dpc-checkbox__input:checked + .dpc-checkbox__box {
+    background-color: var(--dpc-danger);
+    border-color: var(--dpc-danger);
+  }
+}

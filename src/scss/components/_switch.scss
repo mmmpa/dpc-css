@@ -1,0 +1,124 @@
+// src/scss/components/_switch.scss
+@use '../mixins' as *;
+
+.dpc-switch {
+  @include component-base;
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+  user-select: none;
+  font-family: var(--dpc-font-family);
+  font-size: var(--dpc-font-size-md);
+  color: var(--dpc-dark);
+
+  &__input {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+
+    &:checked + .dpc-switch__track {
+      background-color: var(--dpc-primary);
+
+      .dpc-switch__thumb {
+        transform: translateX(20px);
+      }
+    }
+
+    &:focus + .dpc-switch__track {
+      box-shadow: 0 0 0 3px rgba(2, 186, 242, 0.25);
+    }
+
+    &:disabled + .dpc-switch__track {
+      background-color: var(--dpc-light);
+      cursor: not-allowed;
+
+      .dpc-switch__thumb {
+        background-color: var(--dpc-lighter);
+      }
+    }
+
+    &:disabled:checked + .dpc-switch__track {
+      background-color: var(--dpc-gray-light);
+    }
+
+    &:disabled ~ .dpc-switch__label {
+      color: var(--dpc-gray);
+      cursor: not-allowed;
+    }
+  }
+
+  &__track {
+    position: relative;
+    width: 44px;
+    height: 24px;
+    background-color: var(--dpc-gray-light);
+    border-radius: 12px;
+    transition: background-color var(--dpc-transition-fast);
+    flex-shrink: 0;
+  }
+
+  &__thumb {
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 20px;
+    height: 20px;
+    background-color: var(--dpc-white);
+    border-radius: 50%;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+    transition: transform var(--dpc-transition-fast);
+  }
+
+  &__label {
+    margin-left: var(--dpc-spacing-sm);
+  }
+
+  // Size variants
+  &--sm {
+    .dpc-switch__track {
+      width: 36px;
+      height: 20px;
+      border-radius: 10px;
+    }
+
+    .dpc-switch__thumb {
+      width: 16px;
+      height: 16px;
+    }
+
+    .dpc-switch__input:checked + .dpc-switch__track .dpc-switch__thumb {
+      transform: translateX(16px);
+    }
+  }
+
+  &--lg {
+    .dpc-switch__track {
+      width: 52px;
+      height: 28px;
+      border-radius: 14px;
+    }
+
+    .dpc-switch__thumb {
+      width: 24px;
+      height: 24px;
+    }
+
+    .dpc-switch__input:checked + .dpc-switch__track .dpc-switch__thumb {
+      transform: translateX(24px);
+    }
+  }
+
+  // Color variants
+  &--success .dpc-switch__input:checked + .dpc-switch__track {
+    background-color: var(--dpc-success);
+  }
+
+  &--warning .dpc-switch__input:checked + .dpc-switch__track {
+    background-color: var(--dpc-warning);
+  }
+
+  &--danger .dpc-switch__input:checked + .dpc-switch__track {
+    background-color: var(--dpc-danger);
+  }
+}

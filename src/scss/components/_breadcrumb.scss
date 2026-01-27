@@ -1,0 +1,56 @@
+// src/scss/components/_breadcrumb.scss
+@use '../mixins' as *;
+
+.dpc-breadcrumb {
+  @include component-base;
+  display: flex;
+  flex-wrap: wrap;
+  padding: var(--dpc-spacing-sm) var(--dpc-spacing-md);
+  margin: 0;
+  list-style: none;
+  font-family: var(--dpc-font-family);
+  font-size: var(--dpc-font-size-md);
+  background-color: var(--dpc-white);
+  border: 1px solid var(--dpc-light);
+  border-radius: var(--dpc-border-radius);
+
+  // === Items ===
+  &__item {
+    display: flex;
+    align-items: center;
+
+    // Separator
+    &:not(:first-child)::before {
+      content: "\203A"; // ›
+      padding: 0 var(--dpc-spacing-sm);
+      color: var(--dpc-gray);
+    }
+
+    a {
+      color: var(--dpc-primary);
+      text-decoration: none;
+      transition: color var(--dpc-transition-fast);
+
+      &:hover {
+        color: var(--dpc-primary-active);
+      }
+    }
+
+    // Active/current item
+    &--active {
+      color: var(--dpc-dark);
+    }
+  }
+
+  // === Minimal variant (no border) ===
+  &--minimal {
+    background: transparent;
+    border: none;
+    padding-left: 0;
+    padding-right: 0;
+
+    .dpc-breadcrumb__item:not(:first-child)::before {
+      content: "/";
+    }
+  }
+}

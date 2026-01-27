@@ -1,0 +1,40 @@
+// src/scss/components/_badge.scss
+@use '../mixins' as *;
+
+.dpc-badge {
+  @include component-base;
+  display: inline-block;
+  padding: 0.25em 0.5em;
+  font-family: var(--dpc-font-family);
+  font-size: var(--dpc-font-size-sm);
+  font-weight: var(--dpc-font-weight-semibold);
+  line-height: 1;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  border-radius: 10px;
+  background-color: var(--dpc-gray-light);
+  color: var(--dpc-white);
+
+  // === Variants ===
+  &--primary {
+    background-color: var(--dpc-primary);
+  }
+
+  &--success {
+    background-color: var(--dpc-success);
+  }
+
+  &--warning {
+    background-color: var(--dpc-warning);
+    color: var(--dpc-dark);
+  }
+
+  &--danger {
+    background-color: var(--dpc-danger);
+  }
+
+  &--info {
+    background-color: var(--dpc-purple);
+  }
+}

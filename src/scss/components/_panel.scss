@@ -1,0 +1,101 @@
+// src/scss/components/_panel.scss
+@use '../mixins' as *;
+
+.dpc-panel {
+  @include component-base;
+  font-family: var(--dpc-font-family);
+  background-color: var(--dpc-white);
+  border: 1px solid var(--dpc-light);
+  border-radius: var(--dpc-border-radius);
+  margin-bottom: var(--dpc-spacing-md);
+
+  &__header {
+    padding: var(--dpc-spacing-md);
+    border-bottom: 1px solid var(--dpc-light);
+    background-color: var(--dpc-lighter);
+    border-radius: var(--dpc-border-radius) var(--dpc-border-radius) 0 0;
+  }
+
+  &__title {
+    margin: 0;
+    font-size: var(--dpc-font-size-md);
+    font-weight: var(--dpc-font-weight-semibold);
+    color: var(--dpc-dark);
+  }
+
+  &__body {
+    padding: var(--dpc-spacing-md);
+    color: var(--dpc-dark);
+  }
+
+  &__footer {
+    padding: var(--dpc-spacing-md);
+    border-top: 1px solid var(--dpc-light);
+    background-color: var(--dpc-lighter);
+    border-radius: 0 0 var(--dpc-border-radius) var(--dpc-border-radius);
+  }
+
+  // Color variants
+  &--primary {
+    border-color: var(--dpc-primary);
+
+    .dpc-panel__header {
+      background-color: var(--dpc-primary);
+      border-color: var(--dpc-primary);
+      color: var(--dpc-white);
+    }
+
+    .dpc-panel__title {
+      color: var(--dpc-white);
+    }
+  }
+
+  &--success {
+    border-color: var(--dpc-success);
+
+    .dpc-panel__header {
+      background-color: var(--dpc-success);
+      border-color: var(--dpc-success);
+      color: var(--dpc-white);
+    }
+
+    .dpc-panel__title {
+      color: var(--dpc-white);
+    }
+  }
+
+  &--warning {
+    border-color: var(--dpc-warning);
+
+    .dpc-panel__header {
+      background-color: var(--dpc-warning);
+      border-color: var(--dpc-warning);
+      color: var(--dpc-dark);
+    }
+
+    .dpc-panel__title {
+      color: var(--dpc-dark);
+    }
+  }
+
+  &--danger {
+    border-color: var(--dpc-danger);
+
+    .dpc-panel__header {
+      background-color: var(--dpc-danger);
+      border-color: var(--dpc-danger);
+      color: var(--dpc-white);
+    }
+
+    .dpc-panel__title {
+      color: var(--dpc-white);
+    }
+  }
+
+  // Flush variant (no padding in body)
+  &--flush {
+    .dpc-panel__body {
+      padding: 0;
+    }
+  }
+}
