@@ -1,37 +1,38 @@
 // src/stories/Tabs.stories.ts
-import type { Meta, StoryObj } from '@storybook/html';
+import type { Meta, StoryObj } from "@storybook/html";
 
 interface TabsArgs {
   activeTab: number;
-  variant: 'default' | 'stroke';
+  variant: "default" | "stroke";
 }
 
 const meta: Meta<TabsArgs> = {
-  title: 'Components/Tabs',
-  tags: ['autodocs'],
+  title: "Components/Tabs",
+  tags: ["autodocs"],
   argTypes: {
     activeTab: {
-      control: { type: 'number', min: 1, max: 4 },
-      description: 'Active tab index',
+      control: { type: "number", min: 1, max: 4 },
+      description: "Active tab index",
     },
     variant: {
-      control: 'select',
-      options: ['default', 'stroke'],
-      description: 'Tab style variant',
+      control: "select",
+      options: ["default", "stroke"],
+      description: "Tab style variant",
     },
   },
   render: (args) => {
-    const variantClass = args.variant === 'stroke' ? 'dpc-tabs--stroke' : '';
-    const tabs = ['Home', 'Profile', 'Settings', 'Help'];
+    const variantClass = args.variant === "stroke" ? "dpc-tabs--stroke" : "";
+    const tabs = ["Home", "Profile", "Settings", "Help"];
 
     const tabsHtml = tabs
       .map((tab, index) => {
-        const activeClass = index + 1 === args.activeTab ? 'dpc-tabs__item--active' : '';
+        const activeClass =
+          index + 1 === args.activeTab ? "dpc-tabs__item--active" : "";
         return `<li class="dpc-tabs__item ${activeClass}">
           <a href="#" class="dpc-tabs__link">${tab}</a>
         </li>`;
       })
-      .join('');
+      .join("");
 
     return `<ul class="dpc-tabs ${variantClass}">${tabsHtml}</ul>`;
   },
@@ -43,14 +44,14 @@ type Story = StoryObj<TabsArgs>;
 export const Default: Story = {
   args: {
     activeTab: 1,
-    variant: 'default',
+    variant: "default",
   },
 };
 
 export const Stroke: Story = {
   args: {
     activeTab: 2,
-    variant: 'stroke',
+    variant: "stroke",
   },
 };
 

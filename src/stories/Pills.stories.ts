@@ -1,5 +1,5 @@
 // src/stories/Pills.stories.ts
-import type { Meta, StoryObj } from '@storybook/html';
+import type { Meta, StoryObj } from "@storybook/html";
 
 interface PillsArgs {
   activeIndex: number;
@@ -7,31 +7,32 @@ interface PillsArgs {
 }
 
 const meta: Meta<PillsArgs> = {
-  title: 'Components/Pills',
-  tags: ['autodocs'],
+  title: "Components/Pills",
+  tags: ["autodocs"],
   argTypes: {
     activeIndex: {
-      control: { type: 'number', min: 1, max: 4 },
-      description: 'Active pill index',
+      control: { type: "number", min: 1, max: 4 },
+      description: "Active pill index",
     },
     vertical: {
-      control: 'boolean',
-      description: 'Vertical layout',
+      control: "boolean",
+      description: "Vertical layout",
     },
   },
   render: (args) => {
-    const verticalClass = args.vertical ? 'dpc-pills--vertical' : '';
-    const pills = ['Home', 'Profile', 'Settings', 'Help'];
-    const style = args.vertical ? 'style="width: 200px;"' : '';
+    const verticalClass = args.vertical ? "dpc-pills--vertical" : "";
+    const pills = ["Home", "Profile", "Settings", "Help"];
+    const style = args.vertical ? 'style="width: 200px;"' : "";
 
     const pillsHtml = pills
       .map((pill, index) => {
-        const activeClass = index + 1 === args.activeIndex ? 'dpc-pills__item--active' : '';
+        const activeClass =
+          index + 1 === args.activeIndex ? "dpc-pills__item--active" : "";
         return `<li class="dpc-pills__item ${activeClass}">
           <a href="#" class="dpc-pills__link">${pill}</a>
         </li>`;
       })
-      .join('');
+      .join("");
 
     return `<ul class="dpc-pills ${verticalClass}" ${style}>${pillsHtml}</ul>`;
   },

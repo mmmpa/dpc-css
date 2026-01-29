@@ -1,27 +1,28 @@
 // src/stories/Label.stories.ts
-import type { Meta, StoryObj } from '@storybook/html';
+import type { Meta, StoryObj } from "@storybook/html";
 
 interface LabelArgs {
-  variant: 'default' | 'primary' | 'success' | 'warning' | 'danger' | 'info';
+  variant: "default" | "primary" | "success" | "warning" | "danger" | "info";
   text: string;
 }
 
 const meta: Meta<LabelArgs> = {
-  title: 'Components/Label',
-  tags: ['autodocs'],
+  title: "Components/Label",
+  tags: ["autodocs"],
   argTypes: {
     variant: {
-      control: 'select',
-      options: ['default', 'primary', 'success', 'warning', 'danger', 'info'],
-      description: 'Label color variant',
+      control: "select",
+      options: ["default", "primary", "success", "warning", "danger", "info"],
+      description: "Label color variant",
     },
     text: {
-      control: 'text',
-      description: 'Label text',
+      control: "text",
+      description: "Label text",
     },
   },
   render: (args) => {
-    const variantClass = args.variant !== 'default' ? `dpc-label--${args.variant}` : '';
+    const variantClass =
+      args.variant !== "default" ? `dpc-label--${args.variant}` : "";
     return `<span class="dpc-label ${variantClass}">${args.text}</span>`;
   },
 };
@@ -31,43 +32,43 @@ type Story = StoryObj<LabelArgs>;
 
 export const Default: Story = {
   args: {
-    variant: 'default',
-    text: 'Default',
+    variant: "default",
+    text: "Default",
   },
 };
 
 export const Primary: Story = {
   args: {
-    variant: 'primary',
-    text: 'Primary',
+    variant: "primary",
+    text: "Primary",
   },
 };
 
 export const Success: Story = {
   args: {
-    variant: 'success',
-    text: 'Success',
+    variant: "success",
+    text: "Success",
   },
 };
 
 export const Warning: Story = {
   args: {
-    variant: 'warning',
-    text: 'Warning',
+    variant: "warning",
+    text: "Warning",
   },
 };
 
 export const Danger: Story = {
   args: {
-    variant: 'danger',
-    text: 'Danger',
+    variant: "danger",
+    text: "Danger",
   },
 };
 
 export const Info: Story = {
   args: {
-    variant: 'info',
-    text: 'Info',
+    variant: "info",
+    text: "Info",
   },
 };
 

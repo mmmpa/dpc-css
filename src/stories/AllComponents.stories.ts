@@ -1,8 +1,8 @@
 // src/stories/AllComponents.stories.ts
-import type { Meta, StoryObj } from '@storybook/html';
+import type { Meta, StoryObj } from "@storybook/html";
 
 const meta: Meta = {
-  title: 'Overview/All Components',
+  title: "Overview/All Components",
 };
 
 export default meta;

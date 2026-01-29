@@ -1,27 +1,28 @@
 // src/stories/Badge.stories.ts
-import type { Meta, StoryObj } from '@storybook/html';
+import type { Meta, StoryObj } from "@storybook/html";
 
 interface BadgeArgs {
-  variant: 'default' | 'primary' | 'success' | 'warning' | 'danger' | 'info';
+  variant: "default" | "primary" | "success" | "warning" | "danger" | "info";
   text: string;
 }
 
 const meta: Meta<BadgeArgs> = {
-  title: 'Components/Badge',
-  tags: ['autodocs'],
+  title: "Components/Badge",
+  tags: ["autodocs"],
   argTypes: {
     variant: {
-      control: 'select',
-      options: ['default', 'primary', 'success', 'warning', 'danger', 'info'],
-      description: 'Badge color variant',
+      control: "select",
+      options: ["default", "primary", "success", "warning", "danger", "info"],
+      description: "Badge color variant",
     },
     text: {
-      control: 'text',
-      description: 'Badge text',
+      control: "text",
+      description: "Badge text",
     },
   },
   render: (args) => {
-    const variantClass = args.variant !== 'default' ? `dpc-badge--${args.variant}` : '';
+    const variantClass =
+      args.variant !== "default" ? `dpc-badge--${args.variant}` : "";
     return `<span class="dpc-badge ${variantClass}">${args.text}</span>`;
   },
 };
@@ -31,43 +32,43 @@ type Story = StoryObj<BadgeArgs>;
 
 export const Default: Story = {
   args: {
-    variant: 'default',
-    text: '5',
+    variant: "default",
+    text: "5",
   },
 };
 
 export const Primary: Story = {
   args: {
-    variant: 'primary',
-    text: '12',
+    variant: "primary",
+    text: "12",
   },
 };
 
 export const Success: Story = {
   args: {
-    variant: 'success',
-    text: 'New',
+    variant: "success",
+    text: "New",
   },
 };
 
 export const Warning: Story = {
   args: {
-    variant: 'warning',
-    text: '3',
+    variant: "warning",
+    text: "3",
   },
 };
 
 export const Danger: Story = {
   args: {
-    variant: 'danger',
-    text: '99+',
+    variant: "danger",
+    text: "99+",
   },
 };
 
 export const Info: Story = {
   args: {
-    variant: 'info',
-    text: '7',
+    variant: "info",
+    text: "7",
   },
 };
 

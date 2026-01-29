@@ -1,24 +1,30 @@
 // src/stories/Breadcrumb.stories.ts
-import type { Meta, StoryObj } from '@storybook/html';
+import type { Meta, StoryObj } from "@storybook/html";
 
 interface BreadcrumbArgs {
   items: string[];
-  variant: 'default' | 'minimal';
+  variant: "default" | "minimal";
 }
 
 const meta: Meta<BreadcrumbArgs> = {
-  title: 'Components/Breadcrumb',
-  tags: ['autodocs'],
+  title: "Components/Breadcrumb",
+  tags: ["autodocs"],
   argTypes: {
     variant: {
-      control: 'select',
-      options: ['default', 'minimal'],
-      description: 'Breadcrumb style variant',
+      control: "select",
+      options: ["default", "minimal"],
+      description: "Breadcrumb style variant",
     },
   },
   render: (args) => {
-    const variantClass = args.variant === 'minimal' ? 'dpc-breadcrumb--minimal' : '';
-    const items = args.items || ['Home', 'Products', 'Cameras', 'Digital Cameras'];
+    const variantClass =
+      args.variant === "minimal" ? "dpc-breadcrumb--minimal" : "";
+    const items = args.items || [
+      "Home",
+      "Products",
+      "Cameras",
+      "Digital Cameras",
+    ];
     const lastIndex = items.length - 1;
 
     const itemsHtml = items
@@ -28,7 +34,7 @@ const meta: Meta<BreadcrumbArgs> = {
         }
         return `<li class="dpc-breadcrumb__item"><a href="#">${item}</a></li>`;
       })
-      .join('');
+      .join("");
 
     return `<nav><ol class="dpc-breadcrumb ${variantClass}">${itemsHtml}</ol></nav>`;
   },
@@ -39,29 +45,36 @@ type Story = StoryObj<BreadcrumbArgs>;
 
 export const Default: Story = {
   args: {
-    items: ['Home', 'Products', 'Cameras', 'Digital Cameras'],
-    variant: 'default',
+    items: ["Home", "Products", "Cameras", "Digital Cameras"],
+    variant: "default",
   },
 };
 
 export const Minimal: Story = {
   args: {
-    items: ['Home', 'Products', 'Cameras', 'Digital Cameras'],
-    variant: 'minimal',
+    items: ["Home", "Products", "Cameras", "Digital Cameras"],
+    variant: "minimal",
   },
 };
 
 export const Short: Story = {
   args: {
-    items: ['Home', 'About'],
-    variant: 'default',
+    items: ["Home", "About"],
+    variant: "default",
   },
 };
 
 export const Long: Story = {
   args: {
-    items: ['Home', 'Electronics', 'Computers', 'Laptops', 'Gaming Laptops', 'ASUS ROG'],
-    variant: 'default',
+    items: [
+      "Home",
+      "Electronics",
+      "Computers",
+      "Laptops",
+      "Gaming Laptops",
+      "ASUS ROG",
+    ],
+    variant: "default",
   },
 };
 

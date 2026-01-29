@@ -1,46 +1,47 @@
 // src/stories/Switch.stories.ts
-import type { Meta, StoryObj } from '@storybook/html';
+import type { Meta, StoryObj } from "@storybook/html";
 
 interface SwitchArgs {
   label: string;
   checked: boolean;
   disabled: boolean;
-  size: 'sm' | 'md' | 'lg';
-  variant: 'default' | 'success' | 'warning' | 'danger';
+  size: "sm" | "md" | "lg";
+  variant: "default" | "success" | "warning" | "danger";
 }
 
 const meta: Meta<SwitchArgs> = {
-  title: 'Components/Switch',
-  tags: ['autodocs'],
+  title: "Components/Switch",
+  tags: ["autodocs"],
   argTypes: {
     label: {
-      control: 'text',
-      description: 'Switch label',
+      control: "text",
+      description: "Switch label",
     },
     checked: {
-      control: 'boolean',
-      description: 'Checked state',
+      control: "boolean",
+      description: "Checked state",
     },
     disabled: {
-      control: 'boolean',
-      description: 'Disabled state',
+      control: "boolean",
+      description: "Disabled state",
     },
     size: {
-      control: 'select',
-      options: ['sm', 'md', 'lg'],
-      description: 'Switch size',
+      control: "select",
+      options: ["sm", "md", "lg"],
+      description: "Switch size",
     },
     variant: {
-      control: 'select',
-      options: ['default', 'success', 'warning', 'danger'],
-      description: 'Color variant when checked',
+      control: "select",
+      options: ["default", "success", "warning", "danger"],
+      description: "Color variant when checked",
     },
   },
   render: (args) => {
-    const sizeClass = args.size !== 'md' ? `dpc-switch--${args.size}` : '';
-    const variantClass = args.variant !== 'default' ? `dpc-switch--${args.variant}` : '';
-    const checkedAttr = args.checked ? 'checked' : '';
-    const disabledAttr = args.disabled ? 'disabled' : '';
+    const sizeClass = args.size !== "md" ? `dpc-switch--${args.size}` : "";
+    const variantClass =
+      args.variant !== "default" ? `dpc-switch--${args.variant}` : "";
+    const checkedAttr = args.checked ? "checked" : "";
+    const disabledAttr = args.disabled ? "disabled" : "";
 
     return `<label class="dpc-switch ${sizeClass} ${variantClass}">
       <input type="checkbox" class="dpc-switch__input" ${checkedAttr} ${disabledAttr}>
@@ -57,21 +58,21 @@ type Story = StoryObj<SwitchArgs>;
 
 export const Default: Story = {
   args: {
-    label: 'Enable notifications',
+    label: "Enable notifications",
     checked: false,
     disabled: false,
-    size: 'md',
-    variant: 'default',
+    size: "md",
+    variant: "default",
   },
 };
 
 export const Checked: Story = {
   args: {
-    label: 'Dark mode',
+    label: "Dark mode",
     checked: true,
     disabled: false,
-    size: 'md',
-    variant: 'default',
+    size: "md",
+    variant: "default",
   },
 };
 

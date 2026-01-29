@@ -1,39 +1,40 @@
 // src/stories/Checkbox.stories.ts
-import type { Meta, StoryObj } from '@storybook/html';
+import type { Meta, StoryObj } from "@storybook/html";
 
 interface CheckboxArgs {
   label: string;
   checked: boolean;
   disabled: boolean;
-  variant: 'default' | 'success' | 'warning' | 'danger';
+  variant: "default" | "success" | "warning" | "danger";
 }
 
 const meta: Meta<CheckboxArgs> = {
-  title: 'Components/Checkbox',
-  tags: ['autodocs'],
+  title: "Components/Checkbox",
+  tags: ["autodocs"],
   argTypes: {
     label: {
-      control: 'text',
-      description: 'Checkbox label',
+      control: "text",
+      description: "Checkbox label",
     },
     checked: {
-      control: 'boolean',
-      description: 'Checked state',
+      control: "boolean",
+      description: "Checked state",
     },
     disabled: {
-      control: 'boolean',
-      description: 'Disabled state',
+      control: "boolean",
+      description: "Disabled state",
     },
     variant: {
-      control: 'select',
-      options: ['default', 'success', 'warning', 'danger'],
-      description: 'Color variant',
+      control: "select",
+      options: ["default", "success", "warning", "danger"],
+      description: "Color variant",
     },
   },
   render: (args) => {
-    const variantClass = args.variant !== 'default' ? `dpc-checkbox--${args.variant}` : '';
-    const checkedAttr = args.checked ? 'checked' : '';
-    const disabledAttr = args.disabled ? 'disabled' : '';
+    const variantClass =
+      args.variant !== "default" ? `dpc-checkbox--${args.variant}` : "";
+    const checkedAttr = args.checked ? "checked" : "";
+    const disabledAttr = args.disabled ? "disabled" : "";
 
     return `<label class="dpc-checkbox ${variantClass}">
       <input type="checkbox" class="dpc-checkbox__input" ${checkedAttr} ${disabledAttr}>
@@ -48,28 +49,28 @@ type Story = StoryObj<CheckboxArgs>;
 
 export const Default: Story = {
   args: {
-    label: 'Remember me',
+    label: "Remember me",
     checked: false,
     disabled: false,
-    variant: 'default',
+    variant: "default",
   },
 };
 
 export const Checked: Story = {
   args: {
-    label: 'I agree to terms',
+    label: "I agree to terms",
     checked: true,
     disabled: false,
-    variant: 'default',
+    variant: "default",
   },
 };
 
 export const Disabled: Story = {
   args: {
-    label: 'Disabled checkbox',
+    label: "Disabled checkbox",
     checked: false,
     disabled: true,
-    variant: 'default',
+    variant: "default",
   },
 };
 

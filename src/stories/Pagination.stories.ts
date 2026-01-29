@@ -1,42 +1,43 @@
 // src/stories/Pagination.stories.ts
-import type { Meta, StoryObj } from '@storybook/html';
+import type { Meta, StoryObj } from "@storybook/html";
 
 interface PaginationArgs {
   currentPage: number;
   totalPages: number;
-  size: 'sm' | 'md' | 'lg';
+  size: "sm" | "md" | "lg";
 }
 
 const meta: Meta<PaginationArgs> = {
-  title: 'Components/Pagination',
-  tags: ['autodocs'],
+  title: "Components/Pagination",
+  tags: ["autodocs"],
   argTypes: {
     currentPage: {
-      control: { type: 'number', min: 1, max: 10 },
-      description: 'Current active page',
+      control: { type: "number", min: 1, max: 10 },
+      description: "Current active page",
     },
     totalPages: {
-      control: { type: 'number', min: 1, max: 10 },
-      description: 'Total number of pages',
+      control: { type: "number", min: 1, max: 10 },
+      description: "Total number of pages",
     },
     size: {
-      control: 'select',
-      options: ['sm', 'md', 'lg'],
-      description: 'Pagination size',
+      control: "select",
+      options: ["sm", "md", "lg"],
+      description: "Pagination size",
     },
   },
   render: (args) => {
-    const sizeClass = args.size !== 'md' ? `dpc-pagination--${args.size}` : '';
+    const sizeClass = args.size !== "md" ? `dpc-pagination--${args.size}` : "";
     const pages = Array.from({ length: args.totalPages }, (_, i) => i + 1);
 
     const pagesHtml = pages
       .map((page) => {
-        const activeClass = page === args.currentPage ? 'dpc-pagination__item--active' : '';
+        const activeClass =
+          page === args.currentPage ? "dpc-pagination__item--active" : "";
         return `<li class="dpc-pagination__item ${activeClass}">
           <a href="#" class="dpc-pagination__link">${page}</a>
         </li>`;
       })
-      .join('');
+      .join("");
 
     return `<nav>
       <ul class="dpc-pagination ${sizeClass}">
@@ -59,7 +60,7 @@ export const Default: Story = {
   args: {
     currentPage: 2,
     totalPages: 5,
-    size: 'md',
+    size: "md",
   },
 };
 
@@ -67,7 +68,7 @@ export const Small: Story = {
   args: {
     currentPage: 2,
     totalPages: 5,
-    size: 'sm',
+    size: "sm",
   },
 };
 
@@ -75,7 +76,7 @@ export const Large: Story = {
   args: {
     currentPage: 2,
     totalPages: 5,
-    size: 'lg',
+    size: "lg",
   },
 };
 

@@ -1,43 +1,43 @@
 // src/stories/Table.stories.ts
-import type { Meta, StoryObj } from '@storybook/html';
+import type { Meta, StoryObj } from "@storybook/html";
 
 interface TableArgs {
   bordered: boolean;
   striped: boolean;
   hover: boolean;
-  size: 'sm' | 'md' | 'lg';
+  size: "sm" | "md" | "lg";
 }
 
 const meta: Meta<TableArgs> = {
-  title: 'Components/Table',
-  tags: ['autodocs'],
+  title: "Components/Table",
+  tags: ["autodocs"],
   argTypes: {
     bordered: {
-      control: 'boolean',
-      description: 'Add borders to all cells',
+      control: "boolean",
+      description: "Add borders to all cells",
     },
     striped: {
-      control: 'boolean',
-      description: 'Add zebra striping',
+      control: "boolean",
+      description: "Add zebra striping",
     },
     hover: {
-      control: 'boolean',
-      description: 'Enable hover effect on rows',
+      control: "boolean",
+      description: "Enable hover effect on rows",
     },
     size: {
-      control: 'select',
-      options: ['sm', 'md', 'lg'],
-      description: 'Table size',
+      control: "select",
+      options: ["sm", "md", "lg"],
+      description: "Table size",
     },
   },
   render: (args) => {
-    const classes = ['dpc-table'];
-    if (args.bordered) classes.push('dpc-table--bordered');
-    if (args.striped) classes.push('dpc-table--striped');
-    if (args.hover) classes.push('dpc-table--hover');
-    if (args.size !== 'md') classes.push(`dpc-table--${args.size}`);
+    const classes = ["dpc-table"];
+    if (args.bordered) classes.push("dpc-table--bordered");
+    if (args.striped) classes.push("dpc-table--striped");
+    if (args.hover) classes.push("dpc-table--hover");
+    if (args.size !== "md") classes.push(`dpc-table--${args.size}`);
 
-    return `<table class="${classes.join(' ')}">
+    return `<table class="${classes.join(" ")}">
       <thead>
         <tr>
           <th>Name</th>
@@ -84,7 +84,7 @@ export const Default: Story = {
     bordered: false,
     striped: false,
     hover: false,
-    size: 'md',
+    size: "md",
   },
 };
 
@@ -93,7 +93,7 @@ export const Bordered: Story = {
     bordered: true,
     striped: false,
     hover: false,
-    size: 'md',
+    size: "md",
   },
 };
 
@@ -102,7 +102,7 @@ export const Striped: Story = {
     bordered: false,
     striped: true,
     hover: false,
-    size: 'md',
+    size: "md",
   },
 };
 
@@ -111,7 +111,7 @@ export const StripedHover: Story = {
     bordered: false,
     striped: true,
     hover: true,
-    size: 'md',
+    size: "md",
   },
 };
 

@@ -1,40 +1,41 @@
 // src/stories/Panel.stories.ts
-import type { Meta, StoryObj } from '@storybook/html';
+import type { Meta, StoryObj } from "@storybook/html";
 
 interface PanelArgs {
   title: string;
   content: string;
-  variant: 'default' | 'primary' | 'success' | 'warning' | 'danger';
+  variant: "default" | "primary" | "success" | "warning" | "danger";
   showFooter: boolean;
 }
 
 const meta: Meta<PanelArgs> = {
-  title: 'Components/Panel',
-  tags: ['autodocs'],
+  title: "Components/Panel",
+  tags: ["autodocs"],
   argTypes: {
     title: {
-      control: 'text',
-      description: 'Panel title',
+      control: "text",
+      description: "Panel title",
     },
     content: {
-      control: 'text',
-      description: 'Panel content',
+      control: "text",
+      description: "Panel content",
     },
     variant: {
-      control: 'select',
-      options: ['default', 'primary', 'success', 'warning', 'danger'],
-      description: 'Panel color variant',
+      control: "select",
+      options: ["default", "primary", "success", "warning", "danger"],
+      description: "Panel color variant",
     },
     showFooter: {
-      control: 'boolean',
-      description: 'Show panel footer',
+      control: "boolean",
+      description: "Show panel footer",
     },
   },
   render: (args) => {
-    const variantClass = args.variant !== 'default' ? `dpc-panel--${args.variant}` : '';
+    const variantClass =
+      args.variant !== "default" ? `dpc-panel--${args.variant}` : "";
     const footer = args.showFooter
       ? '<div class="dpc-panel__footer">Panel footer</div>'
-      : '';
+      : "";
 
     return `<div class="dpc-panel ${variantClass}" style="max-width: 400px;">
       <div class="dpc-panel__header">
@@ -51,18 +52,18 @@ type Story = StoryObj<PanelArgs>;
 
 export const Default: Story = {
   args: {
-    title: 'Panel Title',
-    content: 'This is the panel content. You can put any content here.',
-    variant: 'default',
+    title: "Panel Title",
+    content: "This is the panel content. You can put any content here.",
+    variant: "default",
     showFooter: false,
   },
 };
 
 export const WithFooter: Story = {
   args: {
-    title: 'Panel with Footer',
-    content: 'This panel includes a footer section.',
-    variant: 'default',
+    title: "Panel with Footer",
+    content: "This panel includes a footer section.",
+    variant: "default",
     showFooter: true,
   },
 };

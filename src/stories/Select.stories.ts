@@ -1,35 +1,36 @@
 // src/stories/Select.stories.ts
-import type { Meta, StoryObj } from '@storybook/html';
+import type { Meta, StoryObj } from "@storybook/html";
 
 interface SelectArgs {
-  size: 'sm' | 'md' | 'lg';
-  state: 'default' | 'success' | 'error';
+  size: "sm" | "md" | "lg";
+  state: "default" | "success" | "error";
   disabled: boolean;
 }
 
 const meta: Meta<SelectArgs> = {
-  title: 'Components/Select',
-  tags: ['autodocs'],
+  title: "Components/Select",
+  tags: ["autodocs"],
   argTypes: {
     size: {
-      control: 'select',
-      options: ['sm', 'md', 'lg'],
-      description: 'Select size',
+      control: "select",
+      options: ["sm", "md", "lg"],
+      description: "Select size",
     },
     state: {
-      control: 'select',
-      options: ['default', 'success', 'error'],
-      description: 'Validation state',
+      control: "select",
+      options: ["default", "success", "error"],
+      description: "Validation state",
     },
     disabled: {
-      control: 'boolean',
-      description: 'Disabled state',
+      control: "boolean",
+      description: "Disabled state",
     },
   },
   render: (args) => {
-    const sizeClass = args.size !== 'md' ? `dpc-select--${args.size}` : '';
-    const stateClass = args.state !== 'default' ? `dpc-select--${args.state}` : '';
-    const disabledAttr = args.disabled ? 'disabled' : '';
+    const sizeClass = args.size !== "md" ? `dpc-select--${args.size}` : "";
+    const stateClass =
+      args.state !== "default" ? `dpc-select--${args.state}` : "";
+    const disabledAttr = args.disabled ? "disabled" : "";
 
     return `<div class="dpc-select ${sizeClass} ${stateClass}" style="width: 250px;">
       <select class="dpc-select__input" ${disabledAttr}>
@@ -48,8 +49,8 @@ type Story = StoryObj<SelectArgs>;
 
 export const Default: Story = {
   args: {
-    size: 'md',
-    state: 'default',
+    size: "md",
+    state: "default",
     disabled: false,
   },
 };

@@ -1,39 +1,40 @@
 // src/stories/Radio.stories.ts
-import type { Meta, StoryObj } from '@storybook/html';
+import type { Meta, StoryObj } from "@storybook/html";
 
 interface RadioArgs {
   label: string;
   checked: boolean;
   disabled: boolean;
-  variant: 'default' | 'success' | 'warning' | 'danger';
+  variant: "default" | "success" | "warning" | "danger";
 }
 
 const meta: Meta<RadioArgs> = {
-  title: 'Components/Radio',
-  tags: ['autodocs'],
+  title: "Components/Radio",
+  tags: ["autodocs"],
   argTypes: {
     label: {
-      control: 'text',
-      description: 'Radio label',
+      control: "text",
+      description: "Radio label",
     },
     checked: {
-      control: 'boolean',
-      description: 'Checked state',
+      control: "boolean",
+      description: "Checked state",
     },
     disabled: {
-      control: 'boolean',
-      description: 'Disabled state',
+      control: "boolean",
+      description: "Disabled state",
     },
     variant: {
-      control: 'select',
-      options: ['default', 'success', 'warning', 'danger'],
-      description: 'Color variant',
+      control: "select",
+      options: ["default", "success", "warning", "danger"],
+      description: "Color variant",
     },
   },
   render: (args) => {
-    const variantClass = args.variant !== 'default' ? `dpc-radio--${args.variant}` : '';
-    const checkedAttr = args.checked ? 'checked' : '';
-    const disabledAttr = args.disabled ? 'disabled' : '';
+    const variantClass =
+      args.variant !== "default" ? `dpc-radio--${args.variant}` : "";
+    const checkedAttr = args.checked ? "checked" : "";
+    const disabledAttr = args.disabled ? "disabled" : "";
 
     return `<label class="dpc-radio ${variantClass}">
       <input type="radio" class="dpc-radio__input" name="single" ${checkedAttr} ${disabledAttr}>
@@ -48,19 +49,19 @@ type Story = StoryObj<RadioArgs>;
 
 export const Default: Story = {
   args: {
-    label: 'Option A',
+    label: "Option A",
     checked: false,
     disabled: false,
-    variant: 'default',
+    variant: "default",
   },
 };
 
 export const Checked: Story = {
   args: {
-    label: 'Selected option',
+    label: "Selected option",
     checked: true,
     disabled: false,
-    variant: 'default',
+    variant: "default",
   },
 };
 

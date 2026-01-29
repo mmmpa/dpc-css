@@ -1,5 +1,5 @@
-import type { Preview } from '@storybook/html';
-import '../dist/dpc.css';
+import type { Preview } from "@storybook/html";
+import "../dist/dpc.css";
 
 const preview: Preview = {
   parameters: {
