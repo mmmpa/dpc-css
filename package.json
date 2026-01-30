@@ -1,11 +1,12 @@
 {
   "name": "@dpc-css/css",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "CSS components based on Drunken Parrot Flat UI",
   "main": "dist/dpc.css",
   "style": "dist/dpc.css",
   "files": [
-    "dist/dpc.css"
+    "dist/dpc.css",
+    "src/scss"
   ],
   "publishConfig": {
     "access": "public"
