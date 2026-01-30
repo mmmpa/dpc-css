@@ -1,5 +1,5 @@
 {
-  "name": "dpc-css",
+  "name": "@dpc-css/css",
   "version": "0.1.0",
   "description": "CSS components based on Drunken Parrot Flat UI",
   "main": "dist/dpc.css",
@@ -7,6 +7,9 @@
   "files": [
     "dist/dpc.css"
   ],
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "build": "sass src/scss/index.scss dist/dpc.css --style=compressed --no-source-map",
     "build:dev": "sass src/scss/index.scss dist/dpc.css --source-map",
