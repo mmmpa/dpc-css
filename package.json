@@ -1,18 +1,24 @@
 {
   "name": "@dpc-css/css",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "CSS components based on Drunken Parrot Flat UI",
   "main": "dist/dpc.css",
   "style": "dist/dpc.css",
+  "exports": {
+    ".": "./dist/dpc.css",
+    "./variables": "./dist/variables.css",
+    "./dist/*": "./dist/*",
+    "./src/*": "./src/*"
+  },
   "files": [
-    "dist/dpc.css",
+    "dist",
     "src/scss"
   ],
   "publishConfig": {
     "access": "public"
   },
   "scripts": {
-    "build": "sass src/scss/index.scss dist/dpc.css --style=compressed --no-source-map",
+    "build": "sass src/scss/index.scss dist/dpc.css --style=compressed --no-source-map && sass src/scss/_variables.scss dist/variables.css --style=compressed --no-source-map",
     "build:dev": "sass src/scss/index.scss dist/dpc.css --source-map",
     "watch": "sass src/scss/index.scss dist/dpc.css --watch --source-map",
     "storybook": "storybook dev -p 6006",

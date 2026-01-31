@@ -15,7 +15,7 @@ export const AllComponents: Story = {
   <!-- Button -->
   <section>
     <h2 style="margin-bottom: 16px; border-bottom: 1px solid #ddd; padding-bottom: 8px;">Button</h2>
-    <div style="display: flex; gap: 8px; flex-wrap: wrap; align-items: center;">
+    <div style="display: flex; gap: 8px; flex-wrap: wrap; align-items: center; margin-bottom: 12px;">
       <button class="dpc-button dpc-button--primary">Primary</button>
       <button class="dpc-button dpc-button--success">Success</button>
       <button class="dpc-button dpc-button--warning">Warning</button>
@@ -23,6 +23,12 @@ export const AllComponents: Story = {
       <button class="dpc-button dpc-button--primary dpc-button--sm">Small</button>
       <button class="dpc-button dpc-button--primary dpc-button--lg">Large</button>
       <button class="dpc-button dpc-button--primary" disabled>Disabled</button>
+    </div>
+    <div style="display: flex; gap: 8px; flex-wrap: wrap; align-items: center;">
+      <button class="dpc-button dpc-button--outline-primary">Outline Primary</button>
+      <button class="dpc-button dpc-button--outline-success">Outline Success</button>
+      <button class="dpc-button dpc-button--outline-warning">Outline Warning</button>
+      <button class="dpc-button dpc-button--outline-danger">Outline Danger</button>
     </div>
   </section>
 

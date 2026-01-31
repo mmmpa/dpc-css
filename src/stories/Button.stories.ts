@@ -2,7 +2,15 @@
 import type { Meta, StoryObj } from "@storybook/html";
 
 interface ButtonArgs {
-  variant: "primary" | "success" | "warning" | "danger";
+  variant:
+    | "primary"
+    | "success"
+    | "warning"
+    | "danger"
+    | "outline-primary"
+    | "outline-success"
+    | "outline-warning"
+    | "outline-danger";
   size: "sm" | "md" | "lg";
   label: string;
   disabled: boolean;
@@ -14,7 +22,16 @@ const meta: Meta<ButtonArgs> = {
   argTypes: {
     variant: {
       control: "select",
-      options: ["primary", "success", "warning", "danger"],
+      options: [
+        "primary",
+        "success",
+        "warning",
+        "danger",
+        "outline-primary",
+        "outline-success",
+        "outline-warning",
+        "outline-danger",
+      ],
       description: "Button color variant",
     },
     size: {
@@ -77,6 +94,42 @@ export const Danger: Story = {
     variant: "danger",
     size: "md",
     label: "Danger Button",
+    disabled: false,
+  },
+};
+
+export const OutlinePrimary: Story = {
+  args: {
+    variant: "outline-primary",
+    size: "md",
+    label: "Outline Primary",
+    disabled: false,
+  },
+};
+
+export const OutlineSuccess: Story = {
+  args: {
+    variant: "outline-success",
+    size: "md",
+    label: "Outline Success",
+    disabled: false,
+  },
+};
+
+export const OutlineWarning: Story = {
+  args: {
+    variant: "outline-warning",
+    size: "md",
+    label: "Outline Warning",
+    disabled: false,
+  },
+};
+
+export const OutlineDanger: Story = {
+  args: {
+    variant: "outline-danger",
+    size: "md",
+    label: "Outline Danger",
     disabled: false,
   },
 };

@@ -77,6 +77,71 @@
     }
   }
 
+  // === Outline Variants ===
+  &--outline-primary {
+    background-color: transparent;
+    border: 1px solid var(--dpc-primary);
+    color: var(--dpc-primary);
+
+    &:hover {
+      background-color: var(--dpc-primary);
+      color: var(--dpc-white);
+      opacity: 1;
+    }
+
+    &:active {
+      background-color: var(--dpc-primary-active);
+    }
+  }
+
+  &--outline-success {
+    background-color: transparent;
+    border: 1px solid var(--dpc-success);
+    color: var(--dpc-success);
+
+    &:hover {
+      background-color: var(--dpc-success);
+      color: var(--dpc-white);
+      opacity: 1;
+    }
+
+    &:active {
+      background-color: var(--dpc-success-active);
+    }
+  }
+
+  &--outline-warning {
+    background-color: transparent;
+    border: 1px solid var(--dpc-warning);
+    color: var(--dpc-warning);
+
+    &:hover {
+      background-color: var(--dpc-warning);
+      color: var(--dpc-dark);
+      opacity: 1;
+    }
+
+    &:active {
+      background-color: var(--dpc-warning-active);
+    }
+  }
+
+  &--outline-danger {
+    background-color: transparent;
+    border: 1px solid var(--dpc-danger);
+    color: var(--dpc-danger);
+
+    &:hover {
+      background-color: var(--dpc-danger);
+      color: var(--dpc-white);
+      opacity: 1;
+    }
+
+    &:active {
+      background-color: var(--dpc-danger-active);
+    }
+  }
+
   // === Sizes ===
   &--sm {
     padding: var(--dpc-spacing-xs) var(--dpc-spacing-sm);
