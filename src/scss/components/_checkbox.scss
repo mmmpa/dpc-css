@@ -11,6 +11,40 @@
   font-size: var(--dpc-font-size-md);
   color: var(--dpc-dark);
 
+  // react-aria-components states (applied to root element)
+  &[data-disabled] {
+    cursor: not-allowed;
+
+    .dpc-checkbox__box {
+      background-color: var(--dpc-lighter);
+      border-color: var(--dpc-light);
+    }
+
+    .dpc-checkbox__label {
+      color: var(--dpc-gray);
+    }
+  }
+
+  &[data-selected] .dpc-checkbox__box {
+    background-color: var(--dpc-primary);
+    border-color: var(--dpc-primary);
+
+    &::after {
+      opacity: 1;
+      transform: rotate(45deg) scale(1);
+    }
+  }
+
+  &[data-focus-visible] .dpc-checkbox__box {
+    box-shadow: 0 0 0 3px rgba(2, 186, 242, 0.25);
+  }
+
+  &[data-selected][data-disabled] .dpc-checkbox__box {
+    background-color: var(--dpc-gray-light);
+    border-color: var(--dpc-gray-light);
+  }
+
+  // Legacy hidden input structure (for non-react-aria usage)
   &__input {
     position: absolute;
     opacity: 0;
@@ -77,23 +111,32 @@
     margin-left: var(--dpc-spacing-sm);
   }
 
-  // Color variants
-  &--success .dpc-checkbox__input:checked + .dpc-checkbox__box {
-    background-color: var(--dpc-success);
-    border-color: var(--dpc-success);
-  }
-
-  &--warning .dpc-checkbox__input:checked + .dpc-checkbox__box {
-    background-color: var(--dpc-warning);
-    border-color: var(--dpc-warning);
-
-    &::after {
-      border-color: var(--dpc-dark);
+  // Color variants (work with both structures)
+  &--success {
+    &[data-selected] .dpc-checkbox__box,
+    .dpc-checkbox__input:checked + .dpc-checkbox__box {
+      background-color: var(--dpc-success);
+      border-color: var(--dpc-success);
     }
   }
 
-  &--danger .dpc-checkbox__input:checked + .dpc-checkbox__box {
-    background-color: var(--dpc-danger);
-    border-color: var(--dpc-danger);
+  &--warning {
+    &[data-selected] .dpc-checkbox__box,
+    .dpc-checkbox__input:checked + .dpc-checkbox__box {
+      background-color: var(--dpc-warning);
+      border-color: var(--dpc-warning);
+
+      &::after {
+        border-color: var(--dpc-dark);
+      }
+    }
+  }
+
+  &--danger {
+    &[data-selected] .dpc-checkbox__box,
+    .dpc-checkbox__input:checked + .dpc-checkbox__box {
+      background-color: var(--dpc-danger);
+      border-color: var(--dpc-danger);
+    }
   }
 }

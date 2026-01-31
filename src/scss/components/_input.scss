@@ -21,7 +21,8 @@
     color: var(--dpc-gray);
   }
 
-  &:focus {
+  &:focus,
+  &[data-focused] {
     outline: none;
     border-color: var(--dpc-primary);
     box-shadow: 0 0 0 3px rgba(2, 186, 242, 0.2);
@@ -31,7 +32,8 @@
   &--error {
     border-color: var(--dpc-danger);
 
-    &:focus {
+    &:focus,
+    &[data-focused] {
       border-color: var(--dpc-danger);
       box-shadow: 0 0 0 3px rgba(248, 69, 69, 0.2);
     }
@@ -40,13 +42,15 @@
   &--success {
     border-color: var(--dpc-success);
 
-    &:focus {
+    &:focus,
+    &[data-focused] {
       border-color: var(--dpc-success);
       box-shadow: 0 0 0 3px rgba(62, 181, 172, 0.2);
     }
   }
 
   &:disabled,
+  &[data-disabled],
   &--disabled {
     background-color: var(--dpc-light);
     cursor: not-allowed;

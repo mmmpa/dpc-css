@@ -11,6 +11,42 @@
   font-size: var(--dpc-font-size-md);
   color: var(--dpc-dark);
 
+  // react-aria-components states
+  &[data-disabled] {
+    cursor: not-allowed;
+
+    .dpc-radio__circle {
+      background-color: var(--dpc-lighter);
+      border-color: var(--dpc-light);
+    }
+
+    .dpc-radio__label {
+      color: var(--dpc-gray);
+    }
+  }
+
+  &[data-selected] .dpc-radio__circle {
+    border-color: var(--dpc-primary);
+
+    &::after {
+      opacity: 1;
+      transform: translate(-50%, -50%) scale(1);
+    }
+  }
+
+  &[data-focus-visible] .dpc-radio__circle {
+    box-shadow: 0 0 0 3px rgba(2, 186, 242, 0.25);
+  }
+
+  &[data-selected][data-disabled] .dpc-radio__circle {
+    border-color: var(--dpc-gray-light);
+
+    &::after {
+      background-color: var(--dpc-gray-light);
+    }
+  }
+
+  // Legacy hidden input structure
   &__input {
     position: absolute;
     opacity: 0;
@@ -80,27 +116,36 @@
   }
 
   // Color variants
-  &--success .dpc-radio__input:checked + .dpc-radio__circle {
-    border-color: var(--dpc-success);
+  &--success {
+    &[data-selected] .dpc-radio__circle,
+    .dpc-radio__input:checked + .dpc-radio__circle {
+      border-color: var(--dpc-success);
 
-    &::after {
-      background-color: var(--dpc-success);
+      &::after {
+        background-color: var(--dpc-success);
+      }
     }
   }
 
-  &--warning .dpc-radio__input:checked + .dpc-radio__circle {
-    border-color: var(--dpc-warning);
+  &--warning {
+    &[data-selected] .dpc-radio__circle,
+    .dpc-radio__input:checked + .dpc-radio__circle {
+      border-color: var(--dpc-warning);
 
-    &::after {
-      background-color: var(--dpc-warning);
+      &::after {
+        background-color: var(--dpc-warning);
+      }
     }
   }
 
-  &--danger .dpc-radio__input:checked + .dpc-radio__circle {
-    border-color: var(--dpc-danger);
+  &--danger {
+    &[data-selected] .dpc-radio__circle,
+    .dpc-radio__input:checked + .dpc-radio__circle {
+      border-color: var(--dpc-danger);
 
-    &::after {
-      background-color: var(--dpc-danger);
+      &::after {
+        background-color: var(--dpc-danger);
+      }
     }
   }
 }
@@ -112,6 +157,7 @@
   flex-direction: column;
   gap: var(--dpc-spacing-sm);
 
+  &[data-orientation="horizontal"],
   &--inline {
     flex-direction: row;
     gap: var(--dpc-spacing-md);

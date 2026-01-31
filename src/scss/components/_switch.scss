@@ -11,6 +11,40 @@
   font-size: var(--dpc-font-size-md);
   color: var(--dpc-dark);
 
+  // react-aria-components states
+  &[data-disabled] {
+    cursor: not-allowed;
+
+    .dpc-switch__track {
+      background-color: var(--dpc-light);
+
+      .dpc-switch__thumb {
+        background-color: var(--dpc-lighter);
+      }
+    }
+
+    .dpc-switch__label {
+      color: var(--dpc-gray);
+    }
+  }
+
+  &[data-selected] .dpc-switch__track {
+    background-color: var(--dpc-primary);
+
+    .dpc-switch__thumb {
+      transform: translateX(20px);
+    }
+  }
+
+  &[data-focus-visible] .dpc-switch__track {
+    box-shadow: 0 0 0 3px rgba(2, 186, 242, 0.25);
+  }
+
+  &[data-selected][data-disabled] .dpc-switch__track {
+    background-color: var(--dpc-gray-light);
+  }
+
+  // Legacy hidden input structure
   &__input {
     position: absolute;
     opacity: 0;
@@ -87,6 +121,7 @@
       height: 16px;
     }
 
+    &[data-selected] .dpc-switch__track .dpc-switch__thumb,
     .dpc-switch__input:checked + .dpc-switch__track .dpc-switch__thumb {
       transform: translateX(16px);
     }
@@ -104,21 +139,31 @@
       height: 24px;
     }
 
+    &[data-selected] .dpc-switch__track .dpc-switch__thumb,
     .dpc-switch__input:checked + .dpc-switch__track .dpc-switch__thumb {
       transform: translateX(24px);
     }
   }
 
   // Color variants
-  &--success .dpc-switch__input:checked + .dpc-switch__track {
-    background-color: var(--dpc-success);
+  &--success {
+    &[data-selected] .dpc-switch__track,
+    .dpc-switch__input:checked + .dpc-switch__track {
+      background-color: var(--dpc-success);
+    }
   }
 
-  &--warning .dpc-switch__input:checked + .dpc-switch__track {
-    background-color: var(--dpc-warning);
+  &--warning {
+    &[data-selected] .dpc-switch__track,
+    .dpc-switch__input:checked + .dpc-switch__track {
+      background-color: var(--dpc-warning);
+    }
   }
 
-  &--danger .dpc-switch__input:checked + .dpc-switch__track {
-    background-color: var(--dpc-danger);
+  &--danger {
+    &[data-selected] .dpc-switch__track,
+    .dpc-switch__input:checked + .dpc-switch__track {
+      background-color: var(--dpc-danger);
+    }
   }
 }

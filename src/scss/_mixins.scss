@@ -41,3 +41,48 @@
   transition: background-color var(--dpc-transition-fast),
               box-shadow var(--dpc-transition-fast);
 }
+
+// React Aria Components state selectors
+// These mixins add support for data-* attributes used by react-aria-components
+
+@mixin hover-state {
+  &:hover,
+  &[data-hovered] {
+    @content;
+  }
+}
+
+@mixin focus-state {
+  &:focus,
+  &[data-focused] {
+    @content;
+  }
+}
+
+@mixin focus-visible-state {
+  &:focus-visible,
+  &[data-focus-visible] {
+    @content;
+  }
+}
+
+@mixin pressed-state {
+  &:active,
+  &[data-pressed] {
+    @content;
+  }
+}
+
+@mixin disabled-state {
+  &:disabled,
+  &[data-disabled] {
+    @content;
+  }
+}
+
+@mixin selected-state {
+  &[aria-selected="true"],
+  &[data-selected] {
+    @content;
+  }
+}

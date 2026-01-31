@@ -7,15 +7,18 @@
   background-color: var(--dpc-gray);
   color: var(--dpc-white);
 
-  &:hover {
+  &:hover,
+  &[data-hovered] {
     opacity: 0.85;
   }
 
-  &:focus-visible {
+  &:focus-visible,
+  &[data-focus-visible] {
     @include focus-ring;
   }
 
   &:disabled,
+  &[data-disabled],
   &--disabled {
     @include disabled;
   }
@@ -25,12 +28,14 @@
     background-color: var(--dpc-primary);
     color: var(--dpc-white);
 
-    &:hover {
+    &:hover,
+    &[data-hovered] {
       background-color: var(--dpc-primary-hover);
       opacity: 1;
     }
 
-    &:active {
+    &:active,
+    &[data-pressed] {
       background-color: var(--dpc-primary-active);
     }
   }
@@ -39,12 +44,14 @@
     background-color: var(--dpc-success);
     color: var(--dpc-white);
 
-    &:hover {
+    &:hover,
+    &[data-hovered] {
       background-color: var(--dpc-success-hover);
       opacity: 1;
     }
 
-    &:active {
+    &:active,
+    &[data-pressed] {
       background-color: var(--dpc-success-active);
     }
   }
@@ -53,12 +60,14 @@
     background-color: var(--dpc-warning);
     color: var(--dpc-dark);
 
-    &:hover {
+    &:hover,
+    &[data-hovered] {
       background-color: var(--dpc-warning-hover);
       opacity: 1;
     }
 
-    &:active {
+    &:active,
+    &[data-pressed] {
       background-color: var(--dpc-warning-active);
     }
   }
@@ -67,12 +76,14 @@
     background-color: var(--dpc-danger);
     color: var(--dpc-white);
 
-    &:hover {
+    &:hover,
+    &[data-hovered] {
       background-color: var(--dpc-danger-hover);
       opacity: 1;
     }
 
-    &:active {
+    &:active,
+    &[data-pressed] {
       background-color: var(--dpc-danger-active);
     }
   }
@@ -83,13 +94,15 @@
     border: 1px solid var(--dpc-primary);
     color: var(--dpc-primary);
 
-    &:hover {
+    &:hover,
+    &[data-hovered] {
       background-color: var(--dpc-primary);
       color: var(--dpc-white);
       opacity: 1;
     }
 
-    &:active {
+    &:active,
+    &[data-pressed] {
       background-color: var(--dpc-primary-active);
     }
   }
@@ -99,13 +112,15 @@
     border: 1px solid var(--dpc-success);
     color: var(--dpc-success);
 
-    &:hover {
+    &:hover,
+    &[data-hovered] {
       background-color: var(--dpc-success);
       color: var(--dpc-white);
       opacity: 1;
     }
 
-    &:active {
+    &:active,
+    &[data-pressed] {
       background-color: var(--dpc-success-active);
     }
   }
@@ -115,13 +130,15 @@
     border: 1px solid var(--dpc-warning);
     color: var(--dpc-warning);
 
-    &:hover {
+    &:hover,
+    &[data-hovered] {
       background-color: var(--dpc-warning);
       color: var(--dpc-dark);
       opacity: 1;
     }
 
-    &:active {
+    &:active,
+    &[data-pressed] {
       background-color: var(--dpc-warning-active);
     }
   }
@@ -131,13 +148,15 @@
     border: 1px solid var(--dpc-danger);
     color: var(--dpc-danger);
 
-    &:hover {
+    &:hover,
+    &[data-hovered] {
       background-color: var(--dpc-danger);
       color: var(--dpc-white);
       opacity: 1;
     }
 
-    &:active {
+    &:active,
+    &[data-pressed] {
       background-color: var(--dpc-danger-active);
     }
   }
