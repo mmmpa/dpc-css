@@ -10,7 +10,13 @@ interface ButtonArgs {
     | "outline-primary"
     | "outline-success"
     | "outline-warning"
-    | "outline-danger";
+    | "outline-danger"
+    | "embossed-primary"
+    | "embossed-success"
+    | "embossed-warning"
+    | "embossed-danger"
+    | "embossed-purple"
+    | "embossed-orange";
   size: "sm" | "md" | "lg";
   label: string;
   disabled: boolean;
@@ -31,6 +37,12 @@ const meta: Meta<ButtonArgs> = {
         "outline-success",
         "outline-warning",
         "outline-danger",
+        "embossed-primary",
+        "embossed-success",
+        "embossed-warning",
+        "embossed-danger",
+        "embossed-purple",
+        "embossed-orange",
       ],
       description: "Button color variant",
     },
@@ -159,4 +171,17 @@ export const Disabled: Story = {
     label: "Disabled Button",
     disabled: true,
   },
+};
+
+export const Embossed: Story = {
+  render: () => `
+    <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+      <button class="dpc-button dpc-button--embossed-primary">Primary</button>
+      <button class="dpc-button dpc-button--embossed-success">Success</button>
+      <button class="dpc-button dpc-button--embossed-warning">Warning</button>
+      <button class="dpc-button dpc-button--embossed-danger">Danger</button>
+      <button class="dpc-button dpc-button--embossed-purple">Purple</button>
+      <button class="dpc-button dpc-button--embossed-orange">Orange</button>
+    </div>
+  `,
 };

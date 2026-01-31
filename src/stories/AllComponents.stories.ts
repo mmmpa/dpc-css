@@ -30,6 +30,14 @@ export const AllComponents: Story = {
       <button class="dpc-button dpc-button--outline-warning">Outline Warning</button>
       <button class="dpc-button dpc-button--outline-danger">Outline Danger</button>
     </div>
+    <div style="display: flex; gap: 8px; flex-wrap: wrap; align-items: center; margin-top: 12px;">
+      <button class="dpc-button dpc-button--embossed-primary">Embossed Primary</button>
+      <button class="dpc-button dpc-button--embossed-success">Embossed Success</button>
+      <button class="dpc-button dpc-button--embossed-warning">Embossed Warning</button>
+      <button class="dpc-button dpc-button--embossed-danger">Embossed Danger</button>
+      <button class="dpc-button dpc-button--embossed-purple">Embossed Purple</button>
+      <button class="dpc-button dpc-button--embossed-orange">Embossed Orange</button>
+    </div>
   </section>
 
   <!-- Input -->
