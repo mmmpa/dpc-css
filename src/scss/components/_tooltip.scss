@@ -12,6 +12,12 @@
   outline: none;
   z-index: 1030;
 
+  // Prevent tooltip from blocking hover events when entering/exiting
+  &[data-entering],
+  &[data-exiting] {
+    pointer-events: none;
+  }
+
   // Placement margins (for arrow space)
   &[data-placement="top"] {
     margin-bottom: 8px;

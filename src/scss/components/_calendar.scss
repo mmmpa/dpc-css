@@ -1,0 +1,159 @@
+// src/scss/components/_calendar.scss
+@use '../mixins' as *;
+
+// ==========================================================================
+// Calendar
+// ==========================================================================
+
+.dpc-calendar {
+  @include component-base;
+  width: fit-content;
+}
+
+.dpc-calendar__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--dpc-spacing-sm);
+}
+
+.dpc-calendar__heading {
+  font-size: var(--dpc-font-size-md);
+  font-weight: var(--dpc-font-weight-semibold);
+  color: var(--dpc-dark);
+}
+
+.dpc-calendar__nav-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  background: none;
+  border: none;
+  border-radius: var(--dpc-border-radius);
+  cursor: pointer;
+  color: var(--dpc-gray);
+  font-size: 18px;
+  transition: background-color var(--dpc-transition-fast),
+              color var(--dpc-transition-fast);
+
+  @include hover-state {
+    background-color: var(--dpc-light);
+    color: var(--dpc-dark);
+  }
+
+  @include focus-visible-state {
+    outline: 2px solid var(--dpc-primary);
+    outline-offset: 2px;
+  }
+
+  @include disabled-state {
+    opacity: 0.4;
+    cursor: not-allowed;
+    background-color: transparent;
+  }
+}
+
+.dpc-calendar__grid {
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+.dpc-calendar__header-cell {
+  width: 40px;
+  height: 40px;
+  font-size: var(--dpc-font-size-sm);
+  font-weight: var(--dpc-font-weight-semibold);
+  color: var(--dpc-gray);
+  text-align: center;
+  vertical-align: middle;
+}
+
+.dpc-calendar__cell {
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  text-align: center;
+  vertical-align: middle;
+  font-size: var(--dpc-font-size-sm);
+  color: var(--dpc-dark);
+  background: transparent;
+  border: none;
+  border-radius: var(--dpc-border-radius);
+  cursor: pointer;
+  transition: background-color var(--dpc-transition-fast),
+              color var(--dpc-transition-fast);
+
+  @include hover-state {
+    background-color: var(--dpc-light);
+  }
+
+  @include focus-visible-state {
+    outline: 2px solid var(--dpc-primary);
+    outline-offset: -2px;
+  }
+
+  // Selected (single date)
+  @include selected-state {
+    background-color: var(--dpc-primary);
+    color: var(--dpc-white);
+    border-radius: var(--dpc-border-radius);
+  }
+
+  // Disabled
+  @include disabled-state {
+    opacity: 0.4;
+    cursor: not-allowed;
+    background-color: transparent;
+  }
+
+  // Outside current month
+  &[data-outside-month] {
+    color: var(--dpc-gray-light);
+  }
+
+  // Today
+  &[data-today] {
+    font-weight: var(--dpc-font-weight-semibold);
+  }
+
+  // Unavailable
+  &[data-unavailable] {
+    color: var(--dpc-danger);
+    text-decoration: line-through;
+    cursor: not-allowed;
+  }
+
+  // === Range Selection ===
+
+  // Selection start
+  &[data-selection-start] {
+    background-color: var(--dpc-primary);
+    color: var(--dpc-white);
+    border-radius: var(--dpc-border-radius) 0 0 var(--dpc-border-radius);
+  }
+
+  // Selection end
+  &[data-selection-end] {
+    background-color: var(--dpc-primary);
+    color: var(--dpc-white);
+    border-radius: 0 var(--dpc-border-radius) var(--dpc-border-radius) 0;
+  }
+
+  // Selection start and end (single day range)
+  &[data-selection-start][data-selection-end] {
+    border-radius: var(--dpc-border-radius);
+  }
+
+  // Range middle (selected but not start/end)
+  &[data-selected]:not([data-selection-start]):not([data-selection-end]) {
+    background-color: rgba(2, 186, 242, 0.15);
+    color: var(--dpc-dark);
+    border-radius: 0;
+
+    @include hover-state {
+      background-color: rgba(2, 186, 242, 0.25);
+    }
+  }
+}

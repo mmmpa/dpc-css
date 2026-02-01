@@ -1,0 +1,217 @@
+// src/scss/components/_datepicker.scss
+@use '../mixins' as *;
+
+// ==========================================================================
+// DatePicker / DateRangePicker
+// ==========================================================================
+
+.dpc-datepicker {
+  @include component-base;
+  display: flex;
+  flex-direction: column;
+  gap: var(--dpc-spacing-xs);
+  width: 100%;
+}
+
+.dpc-datepicker__label {
+  font-size: var(--dpc-font-size-sm);
+  font-weight: var(--dpc-font-weight-semibold);
+  color: var(--dpc-dark);
+}
+
+.dpc-datepicker__field {
+  display: inline-flex;
+  align-items: center;
+  width: 100%;
+  background-color: var(--dpc-white);
+  border: 1px solid var(--dpc-gray);
+  border-radius: var(--dpc-border-radius);
+  transition: border-color var(--dpc-transition-fast),
+              box-shadow var(--dpc-transition-fast);
+
+  &:focus-within {
+    border-color: var(--dpc-primary);
+    box-shadow: 0 0 0 3px rgba(2, 186, 242, 0.2);
+  }
+
+  // === Sizes ===
+  &--sm {
+    height: 32px;
+    padding: 0 var(--dpc-spacing-sm);
+    font-size: var(--dpc-font-size-sm);
+  }
+
+  &--md {
+    height: 40px;
+    padding: 0 var(--dpc-spacing-md);
+    font-size: var(--dpc-font-size-md);
+  }
+
+  &--lg {
+    height: 48px;
+    padding: 0 var(--dpc-spacing-md);
+    font-size: var(--dpc-font-size-lg);
+  }
+
+  // === Variants (border color) ===
+  &--primary {
+    border-color: var(--dpc-primary);
+  }
+
+  &--success {
+    border-color: var(--dpc-success);
+  }
+
+  &--warning {
+    border-color: var(--dpc-warning);
+  }
+
+  &--danger {
+    border-color: var(--dpc-danger);
+  }
+
+  // === States ===
+  &[data-disabled],
+  &--disabled {
+    background-color: var(--dpc-light);
+    opacity: 0.7;
+    cursor: not-allowed;
+  }
+
+  &[data-invalid],
+  &--invalid {
+    border-color: var(--dpc-danger);
+
+    &:focus-within {
+      border-color: var(--dpc-danger);
+      box-shadow: 0 0 0 3px rgba(248, 69, 69, 0.2);
+    }
+  }
+}
+
+.dpc-datepicker__input {
+  display: flex;
+  align-items: center;
+  gap: 1px;
+  flex: 1;
+  min-width: 0;
+}
+
+.dpc-datepicker__segment {
+  padding: 2px 3px;
+  border-radius: 2px;
+  color: var(--dpc-dark);
+  font-variant-numeric: tabular-nums;
+  caret-color: transparent;
+
+  &:focus {
+    background-color: var(--dpc-primary);
+    color: var(--dpc-white);
+    outline: none;
+  }
+
+  // Placeholder
+  &[data-placeholder] {
+    color: var(--dpc-gray);
+
+    &:focus {
+      color: var(--dpc-white);
+    }
+  }
+
+  // Literal (separator like "/" or "-")
+  &[data-type="literal"] {
+    padding: 2px 1px;
+    color: var(--dpc-gray);
+  }
+}
+
+.dpc-datepicker__separator {
+  color: var(--dpc-gray);
+  padding: 0 var(--dpc-spacing-xs);
+  user-select: none;
+}
+
+.dpc-datepicker__button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 32px;
+  height: 32px;
+  margin-left: auto;
+  background: none;
+  border: none;
+  border-radius: var(--dpc-border-radius);
+  cursor: pointer;
+  color: var(--dpc-gray);
+  transition: background-color var(--dpc-transition-fast),
+              color var(--dpc-transition-fast);
+
+  @include hover-state {
+    background-color: var(--dpc-light);
+    color: var(--dpc-dark);
+  }
+
+  @include focus-visible-state {
+    outline: 2px solid var(--dpc-primary);
+    outline-offset: -2px;
+  }
+
+  @include disabled-state {
+    opacity: 0.4;
+    cursor: not-allowed;
+  }
+
+  // Smaller button for small size field
+  .dpc-datepicker__field--sm & {
+    width: 24px;
+    height: 24px;
+  }
+
+  // Larger button for large size field
+  .dpc-datepicker__field--lg & {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+.dpc-datepicker__content {
+  background-color: var(--dpc-white);
+  border: 1px solid var(--dpc-gray-light);
+  border-radius: var(--dpc-border-radius);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  padding: var(--dpc-spacing-md);
+  z-index: 1000;
+
+  // Animation for entering
+  &[data-entering] {
+    animation: dpc-datepicker-fade-in 0.15s ease-out;
+  }
+
+  // Animation for exiting
+  &[data-exiting] {
+    animation: dpc-datepicker-fade-in 0.15s ease-out reverse;
+  }
+}
+
+@keyframes dpc-datepicker-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.dpc-datepicker__description {
+  font-size: var(--dpc-font-size-sm);
+  color: var(--dpc-gray);
+}
+
+.dpc-datepicker__error {
+  font-size: var(--dpc-font-size-sm);
+  color: var(--dpc-danger);
+}

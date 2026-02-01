@@ -397,6 +397,122 @@ export const AllComponents: Story = {
     </div>
   </section>
 
+  <!-- Calendar -->
+  <section>
+    <h2 style="margin-bottom: 16px; border-bottom: 1px solid #ddd; padding-bottom: 8px;">Calendar</h2>
+    <div style="display: flex; gap: 24px; flex-wrap: wrap;">
+      <div class="dpc-calendar">
+        <div class="dpc-calendar__header">
+          <button class="dpc-calendar__nav-button">&lsaquo;</button>
+          <span class="dpc-calendar__heading">February 2026</span>
+          <button class="dpc-calendar__nav-button">&rsaquo;</button>
+        </div>
+        <table class="dpc-calendar__grid">
+          <thead>
+            <tr>
+              <th class="dpc-calendar__header-cell">Sun</th>
+              <th class="dpc-calendar__header-cell">Mon</th>
+              <th class="dpc-calendar__header-cell">Tue</th>
+              <th class="dpc-calendar__header-cell">Wed</th>
+              <th class="dpc-calendar__header-cell">Thu</th>
+              <th class="dpc-calendar__header-cell">Fri</th>
+              <th class="dpc-calendar__header-cell">Sat</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><button class="dpc-calendar__cell">1</button></td>
+              <td><button class="dpc-calendar__cell">2</button></td>
+              <td><button class="dpc-calendar__cell">3</button></td>
+              <td><button class="dpc-calendar__cell">4</button></td>
+              <td><button class="dpc-calendar__cell">5</button></td>
+              <td><button class="dpc-calendar__cell">6</button></td>
+              <td><button class="dpc-calendar__cell">7</button></td>
+            </tr>
+            <tr>
+              <td><button class="dpc-calendar__cell" data-selected data-selection-start>8</button></td>
+              <td><button class="dpc-calendar__cell" data-selected>9</button></td>
+              <td><button class="dpc-calendar__cell" data-selected>10</button></td>
+              <td><button class="dpc-calendar__cell" data-selected>11</button></td>
+              <td><button class="dpc-calendar__cell" data-selected>12</button></td>
+              <td><button class="dpc-calendar__cell" data-selected>13</button></td>
+              <td><button class="dpc-calendar__cell" data-selected data-selection-end>14</button></td>
+            </tr>
+            <tr>
+              <td><button class="dpc-calendar__cell" data-today>15</button></td>
+              <td><button class="dpc-calendar__cell">16</button></td>
+              <td><button class="dpc-calendar__cell">17</button></td>
+              <td><button class="dpc-calendar__cell">18</button></td>
+              <td><button class="dpc-calendar__cell">19</button></td>
+              <td><button class="dpc-calendar__cell">20</button></td>
+              <td><button class="dpc-calendar__cell">21</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- DatePicker -->
+  <section>
+    <h2 style="margin-bottom: 16px; border-bottom: 1px solid #ddd; padding-bottom: 8px;">DatePicker</h2>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; max-width: 800px;">
+      <div class="dpc-datepicker">
+        <label class="dpc-datepicker__label">Default</label>
+        <div class="dpc-datepicker__field dpc-datepicker__field--md">
+          <div class="dpc-datepicker__input">
+            <span class="dpc-datepicker__segment" data-placeholder>mm</span>
+            <span class="dpc-datepicker__segment" data-type="literal">/</span>
+            <span class="dpc-datepicker__segment" data-placeholder>dd</span>
+            <span class="dpc-datepicker__segment" data-type="literal">/</span>
+            <span class="dpc-datepicker__segment" data-placeholder>yyyy</span>
+          </div>
+          <button class="dpc-datepicker__button">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+          </button>
+        </div>
+      </div>
+      <div class="dpc-datepicker">
+        <label class="dpc-datepicker__label">Primary</label>
+        <div class="dpc-datepicker__field dpc-datepicker__field--md dpc-datepicker__field--primary">
+          <div class="dpc-datepicker__input">
+            <span class="dpc-datepicker__segment">02</span>
+            <span class="dpc-datepicker__segment" data-type="literal">/</span>
+            <span class="dpc-datepicker__segment">15</span>
+            <span class="dpc-datepicker__segment" data-type="literal">/</span>
+            <span class="dpc-datepicker__segment">2026</span>
+          </div>
+          <button class="dpc-datepicker__button">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+          </button>
+        </div>
+      </div>
+      <div class="dpc-datepicker">
+        <label class="dpc-datepicker__label">Date Range</label>
+        <div class="dpc-datepicker__field dpc-datepicker__field--md">
+          <div class="dpc-datepicker__input">
+            <span class="dpc-datepicker__segment">02</span>
+            <span class="dpc-datepicker__segment" data-type="literal">/</span>
+            <span class="dpc-datepicker__segment">08</span>
+            <span class="dpc-datepicker__segment" data-type="literal">/</span>
+            <span class="dpc-datepicker__segment">2026</span>
+          </div>
+          <span class="dpc-datepicker__separator">&ndash;</span>
+          <div class="dpc-datepicker__input">
+            <span class="dpc-datepicker__segment">02</span>
+            <span class="dpc-datepicker__segment" data-type="literal">/</span>
+            <span class="dpc-datepicker__segment">14</span>
+            <span class="dpc-datepicker__segment" data-type="literal">/</span>
+            <span class="dpc-datepicker__segment">2026</span>
+          </div>
+          <button class="dpc-datepicker__button">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
 </div>
   `,
 };
