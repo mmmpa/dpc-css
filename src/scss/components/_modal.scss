@@ -1,0 +1,105 @@
+// src/scss/components/_modal.scss
+// Modal component styles
+
+.dpc-modal {
+  // react-aria Modal container
+}
+
+.dpc-modal__overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1050;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dpc-modal__content {
+  position: relative;
+  background-color: var(--dpc-white);
+  border-radius: var(--dpc-border-radius);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+  max-height: 90vh;
+  overflow: auto;
+  outline: none;
+
+  // Sizes
+  &--xs { width: 300px; }
+  &--sm { width: 400px; }
+  &--md { width: 600px; }
+  &--lg { width: 800px; }
+  &--xl { width: 1000px; }
+  &--full {
+    width: 100vw;
+    height: 100vh;
+    max-height: 100vh;
+    border-radius: 0;
+  }
+
+  // Variants (left border)
+  &--primary { border-left: 4px solid var(--dpc-primary); }
+  &--success { border-left: 4px solid var(--dpc-success); }
+  &--warning { border-left: 4px solid var(--dpc-warning); }
+  &--danger  { border-left: 4px solid var(--dpc-danger); }
+}
+
+.dpc-modal__header {
+  padding: 15px 20px;
+  border-bottom: 1px solid var(--dpc-light);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.dpc-modal__title {
+  margin: 0;
+  font-size: 20px;
+  font-family: var(--dpc-font-family);
+  font-weight: var(--dpc-font-weight-semibold);
+  color: var(--dpc-dark);
+  line-height: 1.42857143;
+}
+
+.dpc-modal__body {
+  position: relative;
+  padding: 20px;
+}
+
+.dpc-modal__footer {
+  padding: 15px 20px;
+  border-top: 1px solid var(--dpc-light);
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+.dpc-modal__close {
+  background: none;
+  border: none;
+  font-size: 24px;
+  line-height: 1;
+  color: var(--dpc-gray);
+  cursor: pointer;
+  padding: 0;
+  opacity: 0.7;
+  transition: opacity var(--dpc-transition-fast);
+
+  &:hover {
+    opacity: 1;
+  }
+}
+
+// Responsive
+@media (max-width: 767px) {
+  .dpc-modal__content {
+    &--xs,
+    &--sm,
+    &--md,
+    &--lg,
+    &--xl {
+      width: calc(100vw - 20px);
+      margin: 10px;
+    }
+  }
+}

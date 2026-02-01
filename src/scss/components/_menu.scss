@@ -1,0 +1,128 @@
+// src/scss/components/_menu.scss
+// Menu/Dropdown component styles
+
+.dpc-menu-popover {
+  background-color: var(--dpc-white);
+  border: 1px solid var(--dpc-gray-light);
+  border-radius: var(--dpc-border-radius);
+  box-shadow: none;
+  min-width: 220px;
+  outline: none;
+
+  // Placement margins
+  &[data-placement="top"] { margin-bottom: 10px; }
+  &[data-placement="bottom"] { margin-top: 10px; }
+  &[data-placement="left"] { margin-right: 10px; }
+  &[data-placement="right"] { margin-left: 10px; }
+}
+
+.dpc-menu {
+  outline: none;
+  padding: 4px 0;
+  list-style: none;
+  margin: 0;
+}
+
+.dpc-menu__item {
+  display: flex;
+  align-items: center;
+  padding: 4px 15px;
+  font-size: 16px;
+  color: var(--dpc-dark);
+  cursor: pointer;
+  outline: none;
+  text-decoration: none;
+
+  &[data-hovered],
+  &[data-focused] {
+    background-color: var(--dpc-lighter);
+  }
+
+  &[data-selected] {
+    background-color: var(--dpc-primary);
+    color: var(--dpc-white);
+    border: 1px solid var(--dpc-primary-active);
+    margin-left: -1px;
+    margin-right: -1px;
+  }
+
+  &[data-disabled] {
+    color: var(--dpc-gray-light);
+    cursor: default;
+  }
+}
+
+.dpc-menu__separator {
+  height: 1px;
+  background-color: var(--dpc-light);
+  margin: 4px 0;
+}
+
+.dpc-menu__section {
+  // Section container
+}
+
+.dpc-menu__header {
+  color: var(--dpc-gray-light);
+  padding: 3px 15px;
+  text-transform: uppercase;
+  font-size: 14px;
+}
+
+// Selection color variants
+.dpc-menu--selection-primary .dpc-menu__item[data-selected],
+.dpc-menu-popover--selection-primary .dpc-menu__item[data-selected] {
+  background-color: var(--dpc-primary);
+  border-color: var(--dpc-primary-active);
+}
+
+.dpc-menu--selection-success .dpc-menu__item[data-selected],
+.dpc-menu-popover--selection-success .dpc-menu__item[data-selected] {
+  background-color: var(--dpc-success);
+  border-color: var(--dpc-success-active);
+}
+
+.dpc-menu--selection-warning .dpc-menu__item[data-selected],
+.dpc-menu-popover--selection-warning .dpc-menu__item[data-selected] {
+  background-color: var(--dpc-warning);
+  border-color: var(--dpc-warning-active);
+  color: var(--dpc-dark);
+}
+
+.dpc-menu--selection-danger .dpc-menu__item[data-selected],
+.dpc-menu-popover--selection-danger .dpc-menu__item[data-selected] {
+  background-color: var(--dpc-danger);
+  border-color: var(--dpc-danger-active);
+}
+
+// Inverse variant
+.dpc-menu--inverse .dpc-menu-popover,
+.dpc-menu-popover--inverse {
+  background-color: var(--dpc-dark);
+  border-color: var(--dpc-dark);
+}
+
+.dpc-menu--inverse .dpc-menu__item,
+.dpc-menu-popover--inverse .dpc-menu__item {
+  color: var(--dpc-white);
+
+  &[data-hovered],
+  &[data-focused] {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+
+  &[data-selected] {
+    background-color: var(--dpc-primary);
+    border-color: var(--dpc-primary);
+  }
+}
+
+.dpc-menu--inverse .dpc-menu__header,
+.dpc-menu-popover--inverse .dpc-menu__header {
+  color: var(--dpc-gray);
+}
+
+.dpc-menu--inverse .dpc-menu__separator,
+.dpc-menu-popover--inverse .dpc-menu__separator {
+  background-color: rgba(255, 255, 255, 0.1);
+}

@@ -332,6 +332,71 @@ export const AllComponents: Story = {
     </table>
   </section>
 
+  <!-- Modal -->
+  <section>
+    <h2 style="margin-bottom: 16px; border-bottom: 1px solid #ddd; padding-bottom: 8px;">Modal</h2>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px;">
+      <div class="dpc-modal__content dpc-modal__content--sm" style="position: relative;">
+        <div class="dpc-modal__header">
+          <h3 class="dpc-modal__title">Default Modal</h3>
+          <button class="dpc-modal__close">&times;</button>
+        </div>
+        <div class="dpc-modal__body">Modal content goes here.</div>
+        <div class="dpc-modal__footer">
+          <button class="dpc-button">Cancel</button>
+          <button class="dpc-button dpc-button--primary">Confirm</button>
+        </div>
+      </div>
+      <div class="dpc-modal__content dpc-modal__content--sm dpc-modal__content--danger" style="position: relative;">
+        <div class="dpc-modal__header">
+          <h3 class="dpc-modal__title">Danger Modal</h3>
+          <button class="dpc-modal__close">&times;</button>
+        </div>
+        <div class="dpc-modal__body">Are you sure you want to delete?</div>
+        <div class="dpc-modal__footer">
+          <button class="dpc-button">Cancel</button>
+          <button class="dpc-button dpc-button--danger">Delete</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Menu -->
+  <section>
+    <h2 style="margin-bottom: 16px; border-bottom: 1px solid #ddd; padding-bottom: 8px;">Menu</h2>
+    <div style="display: flex; gap: 24px;">
+      <div class="dpc-menu-popover" style="position: relative; display: inline-block;">
+        <div class="dpc-menu">
+          <div class="dpc-menu__item">Open</div>
+          <div class="dpc-menu__item" data-hovered="true">Edit</div>
+          <div class="dpc-menu__separator"></div>
+          <div class="dpc-menu__item">Delete</div>
+        </div>
+      </div>
+      <div class="dpc-menu-popover dpc-menu-popover--inverse" style="position: relative; display: inline-block;">
+        <div class="dpc-menu">
+          <div class="dpc-menu__header">Actions</div>
+          <div class="dpc-menu__item">Open</div>
+          <div class="dpc-menu__item">Edit</div>
+          <div class="dpc-menu__item">Delete</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tooltip -->
+  <section>
+    <h2 style="margin-bottom: 16px; border-bottom: 1px solid #ddd; padding-bottom: 8px;">Tooltip</h2>
+    <div style="display: flex; gap: 24px; padding: 20px 0;">
+      <div class="dpc-tooltip" data-placement="bottom" style="position: relative;">
+        Tooltip text
+      </div>
+      <div class="dpc-tooltip" style="position: relative; max-width: 150px;">
+        Longer tooltip with more content
+      </div>
+    </div>
+  </section>
+
 </div>
   `,
 };

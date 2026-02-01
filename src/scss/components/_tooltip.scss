@@ -1,0 +1,87 @@
+// src/scss/components/_tooltip.scss
+// Tooltip component styles
+
+.dpc-tooltip {
+  background-color: var(--dpc-dark);
+  color: var(--dpc-white);
+  font-size: 12px;
+  line-height: 1.4;
+  padding: 4px 8px;
+  border-radius: var(--dpc-border-radius);
+  max-width: 200px;
+  outline: none;
+  z-index: 1030;
+
+  // Placement margins (for arrow space)
+  &[data-placement="top"] {
+    margin-bottom: 8px;
+  }
+
+  &[data-placement="bottom"] {
+    margin-top: 8px;
+  }
+
+  &[data-placement="left"] {
+    margin-right: 8px;
+  }
+
+  &[data-placement="right"] {
+    margin-left: 8px;
+  }
+}
+
+// Variants
+.dpc-tooltip--primary {
+  background-color: var(--dpc-primary);
+
+  .dpc-tooltip__arrow svg {
+    fill: var(--dpc-primary);
+  }
+}
+
+.dpc-tooltip--success {
+  background-color: var(--dpc-success);
+
+  .dpc-tooltip__arrow svg {
+    fill: var(--dpc-success);
+  }
+}
+
+.dpc-tooltip--warning {
+  background-color: var(--dpc-warning);
+  color: var(--dpc-dark);
+
+  .dpc-tooltip__arrow svg {
+    fill: var(--dpc-warning);
+  }
+}
+
+.dpc-tooltip--danger {
+  background-color: var(--dpc-danger);
+
+  .dpc-tooltip__arrow svg {
+    fill: var(--dpc-danger);
+  }
+}
+
+.dpc-tooltip__arrow {
+  display: block;
+
+  & svg {
+    display: block;
+    fill: var(--dpc-dark);
+  }
+
+  // Arrow rotation based on placement
+  [data-placement="bottom"] & svg {
+    transform: rotate(180deg);
+  }
+
+  [data-placement="left"] & svg {
+    transform: rotate(-90deg);
+  }
+
+  [data-placement="right"] & svg {
+    transform: rotate(90deg);
+  }
+}
