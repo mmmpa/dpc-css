@@ -58,6 +58,12 @@
 .dpc-calendar__grid {
   border-collapse: separate;
   border-spacing: 0;
+
+  td {
+    padding: 0;
+    text-align: center;
+    vertical-align: middle;
+  }
 }
 
 .dpc-calendar__header-cell {
@@ -71,11 +77,12 @@
 }
 
 .dpc-calendar__cell {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   width: 40px;
   height: 40px;
   padding: 0;
-  text-align: center;
-  vertical-align: middle;
   font-size: var(--dpc-font-size-sm);
   color: var(--dpc-dark);
   background: transparent;
